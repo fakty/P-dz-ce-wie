@@ -6,7 +6,12 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Pędzące_Żółwie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Icon="pack://siteoforigin:,,,/Resources/turtle.ico">
+        Title="Okno Główne" Height="350" Width="525" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         
     </Grid>
