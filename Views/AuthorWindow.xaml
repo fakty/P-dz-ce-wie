@@ -1,0 +1,22 @@
+﻿<controls:MetroWindow x:Class="Pędzące_Żółwie.Views.AuthorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      mc:Ignorable="d"
+        Title="AuthorWindow" Height="479.025" Width="328.496" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1">
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Name="BackButton" Content="Wróć" Grid.Row="1" Style="{StaticResource AccentedSquareButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Click="BackButton_Click"/>
+    </Grid>
+</controls:MetroWindow>
+
