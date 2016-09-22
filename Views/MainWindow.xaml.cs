@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Pędzące_Żółwie.Views
 {
@@ -10,6 +12,7 @@ namespace Pędzące_Żółwie.Views
         public MainWindow()
         {
             InitializeComponent();
+            Cursor = new Cursor(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Resources\\green.cur"));
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

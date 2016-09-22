@@ -4,19 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                      mc:Ignorable="d"
-        Title="AuthorWindow" Height="479.025" Width="328.496" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1">
+        mc:Ignorable="d"
+        Title="Pędzące Żółwie" Height="582.452" Width="553.04" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" 
+        GlowBrush="{DynamicResource AccentColorBrush}">
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
-            
+
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <Button Name="BackButton" Content="Wróć" Grid.Row="1" Style="{StaticResource AccentedSquareButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Click="BackButton_Click"/>
+        <Image Name="HeaderImage" Grid.Row="0" Source="pack://siteoforigin:,,,/Resources/header.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill"/>
+        <Button Name="BackButton" Content="Wróć" Grid.Row="6" Style="{StaticResource AccentedSquareButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="159" Height="40" Click="BackButton_Click" FontSize="22" Padding="0"/>
+        <Label x:Name="Name" Content="MICHAŁ PRZYBYLSKI" Foreground="Green" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="36"/>
+        <Label x:Name="Studies" Content="Student informatyki na Politechnice Wrocławskiej (W08)" Foreground="Blue" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="15"/>
+        <Label x:Name="DateOfFinish" Content="Data wydania: 01.11.2016" Foreground="Red" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="24"/>
+        <Label x:Name="Thanks1" Content="Serdeczne podziękowania za skorzystanie z aplikacji." Foreground="Indigo" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="16"/>
+        <Label x:Name="Thanks2" Content="dobrej zabawy! ;)" Foreground="YellowGreen" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="28"/>
     </Grid>
 </controls:MetroWindow>
 

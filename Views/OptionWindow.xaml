@@ -1,17 +1,17 @@
-﻿<Controls:MetroWindow x:Class="Pędzące_Żółwie.Views.OptionWindow"
+﻿<controls:MetroWindow x:Class="Pędzące_Żółwie.Views.OptionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:local="clr-namespace:Pędzące_Żółwie"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="OptionWindow" Height="350" Width="525" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1">
-    <Controls:MetroWindow.RightWindowCommands>
-        <Controls:WindowCommands>
-            
-        </Controls:WindowCommands>
-    </Controls:MetroWindow.RightWindowCommands>
+        Title="Pędzące Żółwie" Height="447.444" Width="714.625" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" 
+        GlowBrush="{DynamicResource AccentColorBrush}" ResizeMode="CanMinimize">
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -21,7 +21,8 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button x:Name="BackButton" Content="Anuluj" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="70" Height="29" Click="BackButton_Click"/>
-        <Button x:Name="ConfirmButton" Content="Zatwierdź" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Style="{StaticResource SquareButtonStyle}" Height="29" Width="70" Click="ConfirmButton_Click"/>
+        <Button x:Name="BackButton" Content="Anuluj" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="160" Height="40" Click="BackButton_Click" FontSize="22" Padding="0"/>
+        <Button x:Name="ConfirmButton" Content="Zatwierdź" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Style="{StaticResource SquareButtonStyle}" Height="40" Width="160" Click="ConfirmButton_Click" FontSize="22" Padding="0"/>
     </Grid>
-</Controls:MetroWindow>
+</controls:MetroWindow>
+
