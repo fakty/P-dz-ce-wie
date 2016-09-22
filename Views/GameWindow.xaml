@@ -9,7 +9,15 @@
         GlowBrush="{DynamicResource AccentColorBrush}" WindowState="Maximized">
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
-
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
     <Grid>
@@ -23,6 +31,32 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Label x:Name="PlayerName" Content="Gracz 0" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontSize="58"/>
+        <Grid Grid.Column="1" Margin="0" Grid.Row="1" Background="GreenYellow">
+            
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="Card0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
+            <Image x:Name="Card1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
+            <Image x:Name="Card2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
+            <Image x:Name="Card3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
+            <Image x:Name="Card4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
+        </Grid>
+        <Grid Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Name="PlayerTurtleLabel" Content="Żółw gracza:" FontSize="28" Height="auto" Width="auto" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5,20" Grid.Row="0"/>
+            <Image x:Name="PlayerTurtle" HorizontalAlignment="Center" Margin="20, 20, 20, 20" Grid.Row="1" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/turtle.ico" Width="100" Height="100"/>
+        </Grid>
     </Grid>
 </controls:MetroWindow>
 
