@@ -16,8 +16,7 @@ namespace Pędzące_Żółwie.Views
 
         private void BackButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            var window = new MainWindow();
-            window.Show();
+            new MainWindow().Show();
             Close();
         }
     }

@@ -22,22 +22,19 @@ namespace Pędzące_Żółwie.Views
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            var window = new GameWindow();
-            window.Show();
+            new GameWindow().Show();
             Close();
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            var window = new OptionWindow();
-            window.Show();
+            new OptionWindow().Show();
             Close();
         }
 
         private void AuthorButton_Click(object sender, RoutedEventArgs e)
         {
-            var window = new AuthorWindow();
-            window.Show();
+            new AuthorWindow().Show();
             Close();
         }
     }
