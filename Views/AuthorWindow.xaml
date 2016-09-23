@@ -22,8 +22,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <Image Name="HeaderImage" Grid.Row="0" Source="pack://siteoforigin:,,,/Resources/header.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill"/>
-        <Button Name="BackButton" Content="Wróć" Grid.Row="6" Style="{StaticResource AccentedSquareButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="159" Height="40" Click="BackButton_Click" FontSize="22" Padding="0"/>
+        <Image x:Name="HeaderImage" Grid.Row="0" Source="pack://siteoforigin:,,,/Resources/header.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill"/>
+        <Button x:Name="BackButton" Content="Wróć" Grid.Row="6" Style="{StaticResource AccentedSquareButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="159" Height="40" Click="BackButton_Click" FontSize="22" Padding="0"/>
         <Label x:Name="Name" Content="MICHAŁ PRZYBYLSKI" Foreground="Green" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="36"/>
         <Label x:Name="Studies" Content="Student informatyki na Politechnice Wrocławskiej (W08)" Foreground="Blue" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="15"/>
         <Label x:Name="DateOfFinish" Content="Data wydania: 01.11.2016" Foreground="Red" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontFamily="Showcard Gothic" FontSize="24"/>

@@ -41,25 +41,21 @@
             <system:String>Monte Carlo</system:String>
         </ComboBox>
         <ComboBox x:Name="Player2Type" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10, 10" Grid.Row="2" VerticalAlignment="Stretch" SelectedIndex="0" FontSize="18">
-            <system:String>Człowiek</system:String>
             <system:String>Alfa-Beta</system:String>
             <system:String>Minimax</system:String>
             <system:String>Monte Carlo</system:String>
         </ComboBox>
         <ComboBox x:Name="Player3Type" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10, 10" Grid.Row="3" VerticalAlignment="Stretch" SelectedIndex="0" FontSize="18">
-            <system:String>Człowiek</system:String>
             <system:String>Alfa-Beta</system:String>
             <system:String>Minimax</system:String>
             <system:String>Monte Carlo</system:String>
         </ComboBox>
         <ComboBox x:Name="Player4Type" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10, 10" Grid.Row="4" VerticalAlignment="Stretch" SelectedIndex="0" FontSize="18">
-            <system:String>Człowiek</system:String>
             <system:String>Alfa-Beta</system:String>
             <system:String>Minimax</system:String>
             <system:String>Monte Carlo</system:String>
         </ComboBox>
         <ComboBox x:Name="Player5Type" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10, 10" Grid.Row="5" VerticalAlignment="Stretch" SelectedIndex="0" FontSize="18">
-            <system:String>Człowiek</system:String>
             <system:String>Alfa-Beta</system:String>
             <system:String>Minimax</system:String>
             <system:String>Monte Carlo</system:String>

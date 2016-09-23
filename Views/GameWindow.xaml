@@ -24,14 +24,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="PlayerName" Content="Gracz 1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontSize="58"/>
+        <Label x:Name="CurrentplayerName" Content="Gracz 1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontSize="58"/>
         <Grid Grid.Column="1" Margin="0" Grid.Row="1" Background="GreenYellow">
             
         </Grid>
@@ -43,11 +43,31 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="Card0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
-            <Image x:Name="Card1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
-            <Image x:Name="Card2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
-            <Image x:Name="Card3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
-            <Image x:Name="Card4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Source="pack://siteoforigin:,,,/Resources/turtle.ico"/>
+            <Button x:Name="Card0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Padding="0">
+                <StackPanel>
+                    <Image Source="pack://siteoforigin:,,,/Resources/turtle.ico" Stretch="UniformToFill"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Card1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Padding="0">
+                <StackPanel>
+                    <Image Source="pack://siteoforigin:,,,/Resources/turtle.ico" Stretch="UniformToFill"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Card2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Padding="0">
+                <StackPanel>
+                    <Image Source="pack://siteoforigin:,,,/Resources/turtle.ico" Stretch="UniformToFill"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Card3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Padding="0">
+                <StackPanel>
+                    <Image Source="pack://siteoforigin:,,,/Resources/turtle.ico" Stretch="UniformToFill"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Card4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Padding="0">
+                <StackPanel>
+                    <Image Source="pack://siteoforigin:,,,/Resources/turtle.ico" Stretch="UniformToFill"/>
+                </StackPanel>
+            </Button>
         </Grid>
         <Grid Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
@@ -69,7 +89,7 @@
             <Label x:Name="Queue3" Content="Gracz 4" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="46"/>
             <Label x:Name="Queue4" Content="Gracz 5" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="46"/>
         </Grid>
-        <Button x:Name="EndTurnButton" Margin="5" Content="Koniec&#x0a;tury" Grid.Column="2" Grid.Row="2" FontSize="32" Style="{StaticResource AccentedSquareButtonStyle}"/>
+        <Button x:Name="EndTurnButton" Margin="5" Content="Koniec&#x0a;tury" Grid.Column="2" Grid.Row="2" FontSize="32" Style="{StaticResource AccentedSquareButtonStyle}" Click="EndTurnButton_Click"/>
         <Button x:Name="BackButton" Margin="5" Content="Powrót do&#x0a;menu" Grid.Column="0" Grid.Row="2" FontSize="32" Style="{StaticResource SquareButtonStyle}" Click="BackButton_Click"/>
     </Grid>
 </controls:MetroWindow>
