@@ -22,7 +22,7 @@ namespace Pędzące_Żółwie.Views
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            new GameWindow().Show();
+            new StartSettingsWindow().Show();
             Close();
         }
 
