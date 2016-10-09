@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Drawing;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
 namespace Pędzące_Żółwie.Views
@@ -85,30 +86,48 @@ namespace Pędzące_Żółwie.Views
         {
             Cursor = _waitCursor;
             var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(2)};
+            PlayerTurtle.Source = ConvertBitmap(Properties.Resources.token);
+            CardImage0.Source = ConvertBitmap(Properties.Resources.card);
             Card0.IsEnabled = false;
+            CardImage1.Source = ConvertBitmap(Properties.Resources.card);
             Card1.IsEnabled = false;
+            CardImage2.Source = ConvertBitmap(Properties.Resources.card);
             Card2.IsEnabled = false;
+            CardImage3.Source = ConvertBitmap(Properties.Resources.card);
             Card3.IsEnabled = false;
+            CardImage4.Source = ConvertBitmap(Properties.Resources.card);
             Card4.IsEnabled = false;
             EndTurnButton.IsEnabled = false;
             EndTurnButton.Content = "Czekaj...";
 
+            ChangePlayer();
             timer.Tick += (s, e) =>
             {
                 ChangePlayer();
                 if (!((string) CurrentplayerName.Content).Equals("Gracz 1")) return;
                 timer.Stop();
                 Cursor = _cursor;
+                PlayerTurtle.Source = ConvertBitmap(Properties.Resources.token_red);
+                CardImage0.Source = ConvertBitmap(Properties.Resources.card_arrow_2);
                 Card0.IsEnabled = true;
+                CardImage1.Source = ConvertBitmap(Properties.Resources.card_yellow_minus);
                 Card1.IsEnabled = true;
+                CardImage2.Source = ConvertBitmap(Properties.Resources.card_violet_plus_2);
                 Card2.IsEnabled = true;
+                CardImage3.Source = ConvertBitmap(Properties.Resources.card_red_plus);
                 Card3.IsEnabled = true;
+                CardImage4.Source = ConvertBitmap(Properties.Resources.card_color_plus);
                 Card4.IsEnabled = true;
                 EndTurnButton.IsEnabled = true;
                 EndTurnButton.Content = "Koniec\ntury";
             };
 
             timer.Start();
+        }
+
+        private BitmapSource ConvertBitmap(Bitmap bitmap)
+        {
+            return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(),IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         }
 
         private void ChangePlayer()
