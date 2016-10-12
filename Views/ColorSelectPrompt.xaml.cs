@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO;
+using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using Pędzące_Żółwie.Controllers;
 using Pędzące_Żółwie.Views;
 
 namespace Pędzące_Żółwie
@@ -14,7 +18,13 @@ namespace Pędzące_Żółwie
         {
             _gameWindow = gameWindow;
             _gameWindow.IsEnabled = false;
+
             InitializeComponent();
+            var desktopWorkingArea = SystemParameters.WorkArea;
+            Left = desktopWorkingArea.Right - Width;
+            Top = desktopWorkingArea.Bottom - Height;
+            Cursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green.cur"));
+
             Image.Source = source;
             if (posColors.Length > 4)
                 Button5.Content = posColors[4];
@@ -32,30 +42,36 @@ namespace Pędzące_Żółwie
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            //dorobic movment w Game class!!!!
+            Game.Instance.EndTurn();
             Close();
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.EndTurn();
             Close();
         }
 
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.EndTurn();
             Close();
         }
 
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.EndTurn();
             Close();
         }
 
         private void Button5_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.EndTurn();
             Close();
         }
 
