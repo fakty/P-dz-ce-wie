@@ -78,39 +78,34 @@ namespace Pędzące_Żółwie.Views
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            Game.DeleteGame();
             new MainWindow().Show();
             Close();
         }
-
-        private void EndTurnButton_Click(object sender, RoutedEventArgs re)
-        {
-            EndTurnButton.Content = new Random().Next(52);
-        }
-
         
         private void Card0_Click(object sender, RoutedEventArgs e)
         {
-            _gameController.CardSelected(CardImage0, 0);
+            _gameController.CardSelected(0);
         }
 
         private void Card1_Click(object sender, RoutedEventArgs e)
         {
-            _gameController.CardSelected(CardImage1, 1);
+            _gameController.CardSelected(1);
         }
 
         private void Card2_Click(object sender, RoutedEventArgs e)
         {
-            _gameController.CardSelected(CardImage2, 2);
+            _gameController.CardSelected(2);
         }
 
         private void Card3_Click(object sender, RoutedEventArgs e)
         {
-            _gameController.CardSelected(CardImage3, 3);
+            _gameController.CardSelected(3);
         }
 
         private void Card4_Click(object sender, RoutedEventArgs e)
         {
-            _gameController.CardSelected(CardImage4, 4);
+            _gameController.CardSelected(4);
         }
 
         

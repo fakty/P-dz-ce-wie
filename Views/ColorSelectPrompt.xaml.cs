@@ -2,8 +2,8 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using Pędzące_Żółwie.Controllers;
+using Pędzące_Żółwie.Models;
 using Pędzące_Żółwie.Views;
 
 namespace Pędzące_Żółwie
@@ -14,10 +14,13 @@ namespace Pędzące_Żółwie
     public partial class ColorSelectPrompt
     {
         private readonly GameWindow _gameWindow;
-        public ColorSelectPrompt(BitmapSource source, string[] posColors, GameWindow gameWindow)
+        private Card _card;
+
+        public ColorSelectPrompt(Card card, string[] posColors, GameWindow gameWindow)
         {
             _gameWindow = gameWindow;
             _gameWindow.IsEnabled = false;
+            _card = card;
 
             InitializeComponent();
             var desktopWorkingArea = SystemParameters.WorkArea;
@@ -25,7 +28,7 @@ namespace Pędzące_Żółwie
             Top = desktopWorkingArea.Bottom - Height;
             Cursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green.cur"));
 
-            Image.Source = source;
+            Image.Source = card.CardImage;
             if (posColors.Length > 4)
                 Button5.Content = posColors[4];
             else Button5.Visibility = Visibility.Hidden;
@@ -35,14 +38,16 @@ namespace Pędzące_Żółwie
             if (posColors.Length > 2)
                 Button3.Content = posColors[2];
             else Button3.Visibility = Visibility.Hidden;
-            Button2.Content = posColors[1];
+            if (posColors.Length > 1)
+                Button2.Content = posColors[1];
+            else Button2.Visibility = Visibility.Hidden;
             Button1.Content = posColors[0];
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
-            //dorobic movment w Game class!!!!
+            Game.Instance.MoveColored(_card, Button1.Content as string);
             Game.Instance.EndTurn();
             Close();
         }
@@ -50,6 +55,7 @@ namespace Pędzące_Żółwie
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.MoveColored(_card, Button2.Content as string);
             Game.Instance.EndTurn();
             Close();
         }
@@ -57,6 +63,7 @@ namespace Pędzące_Żółwie
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.MoveColored(_card, Button3.Content as string);
             Game.Instance.EndTurn();
             Close();
         }
@@ -64,6 +71,7 @@ namespace Pędzące_Żółwie
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.MoveColored(_card, Button4.Content as string);
             Game.Instance.EndTurn();
             Close();
         }
@@ -71,9 +79,17 @@ namespace Pędzące_Żółwie
         private void Button5_Click(object sender, RoutedEventArgs e)
         {
             _gameWindow.IsEnabled = true;
+            Game.Instance.MoveColored(_card, Button5.Content as string);
             Game.Instance.EndTurn();
             Close();
         }
 
+        private Turtle GetTurtle(string turtleColor)
+        {
+            if(turtleColor.Equals("czerwony")) return Turtle.Red;
+            if(turtleColor.Equals("niebieski")) return Turtle.Blue;
+            if(turtleColor.Equals("zielony")) return Turtle.Green;
+            return turtleColor.Equals("fioletowy") ? Turtle.Violet : Turtle.Yellow;
+        }
     }
 }

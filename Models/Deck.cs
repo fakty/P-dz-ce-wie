@@ -16,6 +16,11 @@ namespace Pędzące_Żółwie.Models
 
         public static Deck Instance => _instance ?? (_instance = new Deck());
 
+        public static void deleteDeck()
+        {
+            _instance = null;
+        }
+
         private void Shuffle()
         {
             for (var i = 0; i < 2; i++)

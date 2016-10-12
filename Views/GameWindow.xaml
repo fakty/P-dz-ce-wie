@@ -33,57 +33,71 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="CurrentplayerName" Content="Gracz 1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontSize="58"/>
         <Grid Grid.Column="1" Margin="0" Grid.Row="1" Background="GreenYellow">
-            <Image x:Name="Board" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Pędzące Żółwie;component/Resources/board.png"/>
-            <Image x:Name="Field00" HorizontalAlignment="Left" Height="65" Margin="50,297,0,0" VerticalAlignment="Top" Width="86" Source="/Pędzące Żółwie;component/Resources/turtle_yellow.png"/>
-            <Image x:Name="Field01" HorizontalAlignment="Left" Height="65" Margin="50,253,0,0" VerticalAlignment="Top" Width="86" Source="/Pędzące Żółwie;component/Resources/turtle_violet.png"/>
-            <Image x:Name="Field02" HorizontalAlignment="Left" Height="65" Margin="50,204,0,0" VerticalAlignment="Top" Width="86" Source="/Pędzące Żółwie;component/Resources/turtle_red.png"/>
-            <Image x:Name="Field03" HorizontalAlignment="Left" Height="65" Margin="50,151,0,0" VerticalAlignment="Top" Width="86" Source="/Pędzące Żółwie;component/Resources/turtle_green.png"/>
-            <Image x:Name="Field04" HorizontalAlignment="Left" Height="65" Margin="50,101,0,0" VerticalAlignment="Top" Width="86" Source="/Pędzące Żółwie;component/Resources/turtle_blue.png"/>
-            <Image x:Name="Field10" HorizontalAlignment="Left" Height="65" Margin="126,139,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field11" HorizontalAlignment="Left" Height="65" Margin="126,119,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field12" HorizontalAlignment="Left" Height="65" Margin="126,101,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field13" HorizontalAlignment="Left" Height="65" Margin="126,81,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field14" HorizontalAlignment="Left" Height="65" Margin="126,61,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field20" HorizontalAlignment="Left" Height="65" Margin="203,109,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field21" HorizontalAlignment="Left" Height="65" Margin="203,89,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field22" HorizontalAlignment="Left" Height="65" Margin="203,71,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field23" HorizontalAlignment="Left" Height="65" Margin="203,51,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field24" HorizontalAlignment="Left" Height="65" Margin="203,31,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field30" HorizontalAlignment="Left" Height="65" Margin="281,122,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field31" HorizontalAlignment="Left" Height="65" Margin="281,102,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field32" HorizontalAlignment="Left" Height="65" Margin="281,84,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field33" HorizontalAlignment="Left" Height="65" Margin="281,64,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field34" HorizontalAlignment="Left" Height="65" Margin="281,44,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field40" HorizontalAlignment="Left" Height="65" Margin="345,207,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field41" HorizontalAlignment="Left" Height="65" Margin="345,187,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field42" HorizontalAlignment="Left" Height="65" Margin="345,169,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field43" HorizontalAlignment="Left" Height="65" Margin="345,149,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field44" HorizontalAlignment="Left" Height="65" Margin="345,129,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field50" HorizontalAlignment="Left" Height="65" Margin="417,237,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field51" HorizontalAlignment="Left" Height="65" Margin="417,217,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field52" HorizontalAlignment="Left" Height="65" Margin="417,199,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field53" HorizontalAlignment="Left" Height="65" Margin="417,179,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field54" HorizontalAlignment="Left" Height="65" Margin="417,159,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field60" HorizontalAlignment="Left" Height="65" Margin="489,180,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field61" HorizontalAlignment="Left" Height="65" Margin="489,160,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field62" HorizontalAlignment="Left" Height="65" Margin="489,142,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field63" HorizontalAlignment="Left" Height="65" Margin="489,122,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field64" HorizontalAlignment="Left" Height="65" Margin="489,102,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field70" HorizontalAlignment="Left" Height="65" Margin="558,88,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field71" HorizontalAlignment="Left" Height="65" Margin="558,68,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field72" HorizontalAlignment="Left" Height="65" Margin="558,50,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field73" HorizontalAlignment="Left" Height="65" Margin="558,30,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field74" HorizontalAlignment="Left" Height="65" Margin="558,10,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field80" HorizontalAlignment="Left" Height="65" Margin="634,117,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field81" HorizontalAlignment="Left" Height="65" Margin="634,97,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field82" HorizontalAlignment="Left" Height="65" Margin="634,79,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field83" HorizontalAlignment="Left" Height="65" Margin="634,59,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field84" HorizontalAlignment="Left" Height="65" Margin="634,39,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field90" HorizontalAlignment="Left" Height="65" Margin="694,197,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field91" HorizontalAlignment="Left" Height="65" Margin="694,177,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field92" HorizontalAlignment="Left" Height="65" Margin="694,159,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field93" HorizontalAlignment="Left" Height="65" Margin="694,139,0,0" VerticalAlignment="Top" Width="86"/>
-            <Image x:Name="Field94" HorizontalAlignment="Left" Height="65" Margin="694,119,0,0" VerticalAlignment="Top" Width="86"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="Board" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Pędzące Żółwie;component/Resources/board.png" Grid.ColumnSpan="12"/>
+            <Image x:Name="Field00" HorizontalAlignment="Left" Height="65" Margin="0,297,0,0" VerticalAlignment="Top" Width="86" Grid.Column="1" Source="/Pędzące Żółwie;component/Resources/turtle_yellow.png"/>
+            <Image x:Name="Field01" HorizontalAlignment="Left" Height="65" Margin="0,253,0,0" VerticalAlignment="Top" Width="86" Grid.Column="1" Source="/Pędzące Żółwie;component/Resources/turtle_violet.png"/>
+            <Image x:Name="Field02" HorizontalAlignment="Left" Height="65" Margin="0,204,0,0" VerticalAlignment="Top" Width="86" Grid.Column="1" Source="/Pędzące Żółwie;component/Resources/turtle_red.png"/>
+            <Image x:Name="Field03" HorizontalAlignment="Left" Height="65" Margin="0,151,0,0" VerticalAlignment="Top" Width="86" Grid.Column="1" Source="/Pędzące Żółwie;component/Resources/turtle_green.png"/>
+            <Image x:Name="Field04" HorizontalAlignment="Left" Height="65" Margin="0,101,0,0" VerticalAlignment="Top" Width="86" Grid.Column="1" Source="/Pędzące Żółwie;component/Resources/turtle_blue.png"/>
+            <Image x:Name="Field10" HorizontalAlignment="Left" Height="65" Margin="0,139,0,0" VerticalAlignment="Top" Width="86" Grid.Column="2"/>
+            <Image x:Name="Field11" HorizontalAlignment="Left" Height="65" Margin="0,119,0,0" VerticalAlignment="Top" Width="86" Grid.Column="2"/>
+            <Image x:Name="Field12" HorizontalAlignment="Left" Height="65" Margin="0,101,0,0" VerticalAlignment="Top" Width="86" Grid.Column="2"/>
+            <Image x:Name="Field13" HorizontalAlignment="Left" Height="65" Margin="0,81,0,0" VerticalAlignment="Top" Width="86" Grid.Column="2"/>
+            <Image x:Name="Field14" HorizontalAlignment="Left" Height="65" Margin="0,61,0,0" VerticalAlignment="Top" Width="86" Grid.Column="2"/>
+            <Image x:Name="Field20" HorizontalAlignment="Left" Height="65" Margin="0,109,0,0" VerticalAlignment="Top" Width="86" Grid.Column="3"/>
+            <Image x:Name="Field21" HorizontalAlignment="Left" Height="65" Margin="0,89,0,0" VerticalAlignment="Top" Width="86" Grid.Column="3"/>
+            <Image x:Name="Field22" HorizontalAlignment="Left" Height="65" Margin="0,71,0,0" VerticalAlignment="Top" Width="86" Grid.Column="3"/>
+            <Image x:Name="Field23" HorizontalAlignment="Left" Height="65" Margin="0,51,0,0" VerticalAlignment="Top" Width="86" Grid.Column="3"/>
+            <Image x:Name="Field24" HorizontalAlignment="Left" Height="65" Margin="0,31,0,0" VerticalAlignment="Top" Width="86" Grid.Column="3"/>
+            <Image x:Name="Field30" HorizontalAlignment="Left" Height="65" Margin="0,122,0,0" VerticalAlignment="Top" Width="86" Grid.Column="4"/>
+            <Image x:Name="Field31" HorizontalAlignment="Left" Height="65" Margin="0,102,0,0" VerticalAlignment="Top" Width="86" Grid.Column="4"/>
+            <Image x:Name="Field32" HorizontalAlignment="Left" Height="65" Margin="0,84,0,0" VerticalAlignment="Top" Width="86" Grid.Column="4"/>
+            <Image x:Name="Field33" HorizontalAlignment="Left" Height="65" Margin="0,64,0,0" VerticalAlignment="Top" Width="86" Grid.Column="4"/>
+            <Image x:Name="Field34" HorizontalAlignment="Left" Height="65" Margin="0,44,0,0" VerticalAlignment="Top" Width="86" Grid.Column="4"/>
+            <Image x:Name="Field40" HorizontalAlignment="Left" Height="65" Margin="0,207,0,0" VerticalAlignment="Top" Width="86" Grid.Column="5"/>
+            <Image x:Name="Field41" HorizontalAlignment="Left" Height="65" Margin="0,187,0,0" VerticalAlignment="Top" Width="86" Grid.Column="5"/>
+            <Image x:Name="Field42" HorizontalAlignment="Left" Height="65" Margin="0,169,0,0" VerticalAlignment="Top" Width="86" Grid.Column="5"/>
+            <Image x:Name="Field43" HorizontalAlignment="Left" Height="65" Margin="0,149,0,0" VerticalAlignment="Top" Width="86" Grid.Column="5"/>
+            <Image x:Name="Field44" HorizontalAlignment="Left" Height="65" Margin="0,129,0,0" VerticalAlignment="Top" Width="86" Grid.Column="5"/>
+            <Image x:Name="Field50" HorizontalAlignment="Left" Height="65" Margin="0,237,0,0" VerticalAlignment="Top" Width="86" Grid.Column="6"/>
+            <Image x:Name="Field51" HorizontalAlignment="Left" Height="65" Margin="0,217,0,0" VerticalAlignment="Top" Width="86" Grid.Column="6"/>
+            <Image x:Name="Field52" HorizontalAlignment="Left" Height="65" Margin="0,199,0,0" VerticalAlignment="Top" Width="86" Grid.Column="6"/>
+            <Image x:Name="Field53" HorizontalAlignment="Left" Height="65" Margin="0,179,0,0" VerticalAlignment="Top" Width="86" Grid.Column="6"/>
+            <Image x:Name="Field54" HorizontalAlignment="Left" Height="65" Margin="0,159,0,0" VerticalAlignment="Top" Width="86" Grid.Column="6"/>
+            <Image x:Name="Field60" HorizontalAlignment="Left" Height="65" Margin="0,180,0,0" VerticalAlignment="Top" Width="86" Grid.Column="7"/>
+            <Image x:Name="Field61" HorizontalAlignment="Left" Height="65" Margin="0,160,0,0" VerticalAlignment="Top" Width="86" Grid.Column="7"/>
+            <Image x:Name="Field62" HorizontalAlignment="Left" Height="65" Margin="0,142,0,0" VerticalAlignment="Top" Width="86" Grid.Column="7"/>
+            <Image x:Name="Field63" HorizontalAlignment="Left" Height="65" Margin="0,122,0,0" VerticalAlignment="Top" Width="86" Grid.Column="7"/>
+            <Image x:Name="Field64" HorizontalAlignment="Left" Height="65" Margin="0,102,0,0" VerticalAlignment="Top" Width="86" Grid.Column="7"/>
+            <Image x:Name="Field70" HorizontalAlignment="Left" Height="65" Margin="0,88,0,0" VerticalAlignment="Top" Width="86" Grid.Column="8"/>
+            <Image x:Name="Field71" HorizontalAlignment="Left" Height="65" Margin="0,68,0,0" VerticalAlignment="Top" Width="86" Grid.Column="8"/>
+            <Image x:Name="Field72" HorizontalAlignment="Left" Height="65" Margin="0,50,0,0" VerticalAlignment="Top" Width="86" Grid.Column="8"/>
+            <Image x:Name="Field73" HorizontalAlignment="Left" Height="65" Margin="0,30,0,0" VerticalAlignment="Top" Width="86" Grid.Column="8"/>
+            <Image x:Name="Field74" HorizontalAlignment="Left" Height="65" Margin="0,10,0,0" VerticalAlignment="Top" Width="86" Grid.Column="8"/>
+            <Image x:Name="Field80" HorizontalAlignment="Left" Height="65" Margin="0,117,0,0" VerticalAlignment="Top" Width="86" Grid.Column="9"/>
+            <Image x:Name="Field81" HorizontalAlignment="Left" Height="65" Margin="0,97,0,0" VerticalAlignment="Top" Width="86" Grid.Column="9"/>
+            <Image x:Name="Field82" HorizontalAlignment="Left" Height="65" Margin="0,79,0,0" VerticalAlignment="Top" Width="86" Grid.Column="9"/>
+            <Image x:Name="Field83" HorizontalAlignment="Left" Height="65" Margin="0,59,0,0" VerticalAlignment="Top" Width="86" Grid.Column="9"/>
+            <Image x:Name="Field84" HorizontalAlignment="Left" Height="65" Margin="0,39,0,0" VerticalAlignment="Top" Width="86" Grid.Column="9"/>
+            <Image x:Name="Field90" HorizontalAlignment="Left" Height="65" Margin="0,197,0,0" VerticalAlignment="Top" Width="86" Grid.Column="10"/>
+            <Image x:Name="Field91" HorizontalAlignment="Left" Height="65" Margin="0,177,0,0" VerticalAlignment="Top" Width="86" Grid.Column="10"/>
+            <Image x:Name="Field92" HorizontalAlignment="Left" Height="65" Margin="0,159,0,0" VerticalAlignment="Top" Width="86" Grid.Column="10"/>
+            <Image x:Name="Field93" HorizontalAlignment="Left" Height="65" Margin="0,139,0,0" VerticalAlignment="Top" Width="86" Grid.Column="10"/>
+            <Image x:Name="Field94" HorizontalAlignment="Left" Height="65" Margin="0,119,0,0" VerticalAlignment="Top" Width="86" Grid.Column="10"/>
         </Grid>
         <Grid Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -139,7 +153,6 @@
             <Label x:Name="Queue3" Content="Gracz 4" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="46"/>
             <Label x:Name="Queue4" Content="Gracz 5" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="46"/>
         </Grid>
-        <Button x:Name="EndTurnButton" Margin="5" Content="Koniec&#x0a;tury" Grid.Column="2" Grid.Row="2" FontSize="32" Style="{StaticResource AccentedSquareButtonStyle}" Click="EndTurnButton_Click"/>
         <Button x:Name="BackButton" Margin="5" Content="Powrót do&#x0a;menu" Grid.Column="0" Grid.Row="2" FontSize="32" Style="{StaticResource SquareButtonStyle}" Click="BackButton_Click"/>
     </Grid>
 </controls:MetroWindow>

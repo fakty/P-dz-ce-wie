@@ -229,7 +229,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Pędzące Żółwie_TemporaryKey.pfx" />
     <None Include="Resources\turtle.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
