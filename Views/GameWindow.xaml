@@ -43,27 +43,27 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Card0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Padding="10" Margin="1">
+            <Button x:Name="Card0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Padding="10" Margin="1" Click="Card0_Click">
                 <StackPanel>
                     <Image Name="CardImage0" Source="pack://siteoforigin:,,,/Resources/card_yellow_minus.png" Height="auto" Width="150"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Card1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Padding="10" Margin="1">
+            <Button x:Name="Card1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Padding="10" Margin="1" Click="Card1_Click">
                 <StackPanel>
                     <Image Name="CardImage1" Source="pack://siteoforigin:,,,/Resources/card_violet_plus_2.png" Height="auto" Width="150"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Card2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Padding="10" Margin="1">
+            <Button x:Name="Card2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Padding="10" Margin="1" Click="Card2_Click">
                 <StackPanel>
                     <Image Name="CardImage2" Source="pack://siteoforigin:,,,/Resources/card_blue_plus_2.png" Height="auto" Width="150"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Card3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Padding="10" Margin="1">
+            <Button x:Name="Card3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Padding="10" Margin="1" Click="Card3_Click">
                 <StackPanel>
                     <Image Name="CardImage3" Source="pack://siteoforigin:,,,/Resources/card_arrow.png" Height="auto" Width="150"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Card4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Padding="10" Margin="1">
+            <Button x:Name="Card4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Padding="10" Margin="1" Click="Card4_Click">
                 <StackPanel>
                     <Image Name="CardImage4" Source="pack://siteoforigin:,,,/Resources/card_red_minus.png" Height="auto" Width="150"/>
                 </StackPanel>

@@ -43,17 +43,17 @@ namespace Pędzące_Żółwie.Models
                 _deck.Add(new Card(Properties.Resources.card_color_plus, Turtle.Colorfull, "plus", 1));
 
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(Properties.Resources.card_blue_minus, Turtle.Blue, "plus", 1));
+                _deck.Add(new Card(Properties.Resources.card_blue_minus, Turtle.Blue, "minus", 1));
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(Properties.Resources.card_green_minus, Turtle.Green, "plus", 1));
+                _deck.Add(new Card(Properties.Resources.card_green_minus, Turtle.Green, "minus", 1));
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(Properties.Resources.card_red_minus, Turtle.Red, "plus", 1));
+                _deck.Add(new Card(Properties.Resources.card_red_minus, Turtle.Red, "minus", 1));
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(Properties.Resources.card_violet_minus, Turtle.Violet, "plus", 1));
+                _deck.Add(new Card(Properties.Resources.card_violet_minus, Turtle.Violet, "minus", 1));
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(Properties.Resources.card_yellow_minus, Turtle.Yellow, "plus", 1));
+                _deck.Add(new Card(Properties.Resources.card_yellow_minus, Turtle.Yellow, "minus", 1));
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(Properties.Resources.card_color_minus, Turtle.Colorfull, "plus", 1));
+                _deck.Add(new Card(Properties.Resources.card_color_minus, Turtle.Colorfull, "minus", 1));
         }
 
         public Card DrawCard()
@@ -62,7 +62,7 @@ namespace Pędzące_Żółwie.Models
             {
                 Shuffle();
             }
-            var index = new Random().Next(_deck.Count);
+            var index = new Random().Next(0, _deck.Count);
             var result = _deck[index] as Card;
             _deck.RemoveAt(index);
             return result;

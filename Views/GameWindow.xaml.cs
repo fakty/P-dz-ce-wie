@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections;
-using System.Drawing;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Windows.Threading;
+using Pędzące_Żółwie.Controllers;
 
 namespace Pędzące_Żółwie.Views
 {
@@ -16,15 +13,22 @@ namespace Pędzące_Żółwie.Views
     public partial class GameWindow
     {
         private readonly Cursor _cursor;
-        private readonly Cursor _waitCursor;
+        //private readonly Cursor _waitCursor;
+        private readonly Game _gameController;
+        private Player _currentPlayer;
 
         private readonly int _playersCount;
 
         public GameWindow(int playersCount)
         {
             InitializeComponent();
+            _gameController = Game.Instance;
+            _gameController.PlayersCount = playersCount;
+            _gameController.AddPlayers();
+            _gameController.MainWindow = this;
+
             _cursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green.cur"));
-            _waitCursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green_busy.cur"));
+            //_waitCursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green_busy.cur"));
 
             Cursor = _cursor;
 
@@ -72,8 +76,7 @@ namespace Pędzące_Żółwie.Views
                 Queue4.Content = "Gracz " + array[0];
             }
 
-            VisualStateManager.GoToState(EndTurnButton, "Released", true);
-            EndTurnButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+            EndTurn();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -84,50 +87,7 @@ namespace Pędzące_Żółwie.Views
 
         private void EndTurnButton_Click(object sender, RoutedEventArgs re)
         {
-            Cursor = _waitCursor;
-            var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(2)};
-            PlayerTurtle.Source = ConvertBitmap(Properties.Resources.token);
-            CardImage0.Source = ConvertBitmap(Properties.Resources.card);
-            Card0.IsEnabled = false;
-            CardImage1.Source = ConvertBitmap(Properties.Resources.card);
-            Card1.IsEnabled = false;
-            CardImage2.Source = ConvertBitmap(Properties.Resources.card);
-            Card2.IsEnabled = false;
-            CardImage3.Source = ConvertBitmap(Properties.Resources.card);
-            Card3.IsEnabled = false;
-            CardImage4.Source = ConvertBitmap(Properties.Resources.card);
-            Card4.IsEnabled = false;
-            EndTurnButton.IsEnabled = false;
-            EndTurnButton.Content = "Czekaj...";
-
-            ChangePlayer();
-            timer.Tick += (s, e) =>
-            {
-                ChangePlayer();
-                if (!((string) CurrentplayerName.Content).Equals("Gracz 1")) return;
-                timer.Stop();
-                Cursor = _cursor;
-                PlayerTurtle.Source = ConvertBitmap(Properties.Resources.token_red);
-                CardImage0.Source = ConvertBitmap(Properties.Resources.card_arrow_2);
-                Card0.IsEnabled = true;
-                CardImage1.Source = ConvertBitmap(Properties.Resources.card_yellow_minus);
-                Card1.IsEnabled = true;
-                CardImage2.Source = ConvertBitmap(Properties.Resources.card_violet_plus_2);
-                Card2.IsEnabled = true;
-                CardImage3.Source = ConvertBitmap(Properties.Resources.card_red_plus);
-                Card3.IsEnabled = true;
-                CardImage4.Source = ConvertBitmap(Properties.Resources.card_color_plus);
-                Card4.IsEnabled = true;
-                EndTurnButton.IsEnabled = true;
-                EndTurnButton.Content = "Koniec\ntury";
-            };
-
-            timer.Start();
-        }
-
-        private BitmapSource ConvertBitmap(Bitmap bitmap)
-        {
-            return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(),IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            EndTurnButton.Content = new Random().Next(52);
         }
 
         private void ChangePlayer()
@@ -162,6 +122,101 @@ namespace Pędzące_Żółwie.Views
                 Queue1.Content = CurrentplayerName.Content;
                 CurrentplayerName.Content = second;
             }
+
+            _currentPlayer =
+                _gameController.Players[int.Parse(second.ToString().Substring(second.ToString().Length - 1)) - 1];
+        }
+
+        private void Card0_Click(object sender, RoutedEventArgs e)
+        {
+            var card = _currentPlayer.PlayCard(0);
+            CardImage0.Source = card.CardImage;
+            EndTurn();
+        }
+
+        private void Card1_Click(object sender, RoutedEventArgs e)
+        {
+            var card = _currentPlayer.PlayCard(1);
+            CardImage1.Source = card.CardImage;
+            EndTurn();
+        }
+
+        private void Card2_Click(object sender, RoutedEventArgs e)
+        {
+            var card = _currentPlayer.PlayCard(2);
+            CardImage2.Source = card.CardImage;
+            EndTurn();
+        }
+
+        private void Card3_Click(object sender, RoutedEventArgs e)
+        {
+            var card = _currentPlayer.PlayCard(3);
+            CardImage3.Source = card.CardImage;
+            EndTurn();
+        }
+
+        private void Card4_Click(object sender, RoutedEventArgs e)
+        {
+            var card = _currentPlayer.PlayCard(4);
+            CardImage4.Source = card.CardImage;
+            EndTurn();
+        }
+
+        private void EndTurn()
+        {
+            /*Cursor = _waitCursor;
+            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+            PlayerTurtle.Source = ConvertBitmap(Properties.Resources.token);
+
+            CardImage0.Source = ConvertBitmap(Properties.Resources.card);
+            Card0.IsEnabled = false;
+            CardImage1.Source = ConvertBitmap(Properties.Resources.card);
+            Card1.IsEnabled = false;
+            CardImage2.Source = ConvertBitmap(Properties.Resources.card);
+            Card2.IsEnabled = false;
+            CardImage3.Source = ConvertBitmap(Properties.Resources.card);
+            Card3.IsEnabled = false;
+            CardImage4.Source = ConvertBitmap(Properties.Resources.card);
+            Card4.IsEnabled = false;
+
+            EndTurnButton.IsEnabled = false;
+            EndTurnButton.Content = "Czekaj...";
+
+            ChangePlayer();
+            timer.Tick += (s, e) =>
+            {*/
+                ChangePlayer();
+                /*if (!((string)CurrentplayerName.Content).Equals("Gracz 1")) return;
+                timer.Stop();
+                Cursor = _cursor;*/
+                PlayerTurtle.Source = _currentPlayer.TurtleSource;
+
+                /*CardImage0.Source = ConvertBitmap(Properties.Resources.card_arrow_2);
+                Card0.IsEnabled = true;
+                CardImage1.Source = ConvertBitmap(Properties.Resources.card_yellow_minus);
+                Card1.IsEnabled = true;
+                CardImage2.Source = ConvertBitmap(Properties.Resources.card_violet_plus_2);
+                Card2.IsEnabled = true;
+                CardImage3.Source = ConvertBitmap(Properties.Resources.card_red_plus);
+                Card3.IsEnabled = true;
+                CardImage4.Source = ConvertBitmap(Properties.Resources.card_color_plus);
+                Card4.IsEnabled = true;*/
+                CardImage0.Source = _currentPlayer.Hand[0].CardImage;
+                //Card0.IsEnabled = true;
+                CardImage1.Source = _currentPlayer.Hand[1].CardImage;
+                //Card1.IsEnabled = true;
+                CardImage2.Source = _currentPlayer.Hand[2].CardImage;
+                //Card2.IsEnabled = true;
+                CardImage3.Source = _currentPlayer.Hand[3].CardImage;
+                //Card3.IsEnabled = true;
+                CardImage4.Source = _currentPlayer.Hand[4].CardImage;
+                //Card4.IsEnabled = true;
+
+                /*EndTurnButton.IsEnabled = true;
+                EndTurnButton.Content = "Koniec\ntury";
+            };
+
+            timer.Start();*/
         }
     }
 }

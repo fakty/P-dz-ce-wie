@@ -15,12 +15,12 @@ namespace Pędzące_Żółwie.Models
             Value = value;
         }
 
-        private BitmapSource CardImage { get; }
+        public BitmapSource CardImage { get; }
 
-        private Turtle Color { get; }
+        public Turtle Color { get; }
 
-        private string Sign { get; }
+        public string Sign { get; }
 
-        private int Value { get; }
+        public int Value { get; }
     }
 }

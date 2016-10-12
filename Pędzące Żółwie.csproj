@@ -135,6 +135,9 @@
     <Compile Include="Views\AuthorWindow.xaml.cs">
       <DependentUpon>AuthorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ColorSelectPrompt.xaml.cs">
+      <DependentUpon>ColorSelectPrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OptionWindow.xaml.cs">
       <DependentUpon>OptionWindow.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <DependentUpon>StartSettingsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AuthorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ColorSelectPrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
