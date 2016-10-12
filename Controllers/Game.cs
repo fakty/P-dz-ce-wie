@@ -16,14 +16,21 @@ namespace Pędzące_Żółwie.Controllers
         public GameWindow MainWindow { get; set; }
         public Player[] Players { get; set; }
 
-        //public int[][] Board;
+        private readonly Turtle[][] _board;
 
         private Game()
         {
             //_deck = Deck.Instance;
-            /*Board = new int[10][];
-            for(var i = 0; i < Board.Length; i++) { 
-                Board[i] = new int[5];*/
+            _board = new Turtle[10][];
+            for (var i = 0; i < _board.Length; i++)
+            {
+                _board[i] = new Turtle[5];
+            }
+            _board[0][0] = Turtle.Yellow;
+            _board[0][1] = Turtle.Violet;
+            _board[0][2] = Turtle.Red;
+            _board[0][3] = Turtle.Green;
+            _board[0][4] = Turtle.Blue;
         }
 
         public static Game Instance => _instance ?? (_instance = new Game());
