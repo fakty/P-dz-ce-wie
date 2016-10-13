@@ -26,9 +26,9 @@ namespace Pędzące_Żółwie.Views
             Close();
         }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        private void ManualButton_Click(object sender, RoutedEventArgs e)
         {
-            new OptionWindow().Show();
+            new ManualWindow(false).Show();
             Close();
         }
 

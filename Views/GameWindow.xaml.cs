@@ -107,7 +107,10 @@ namespace Pędzące_Żółwie.Views
         {
             _gameController.CardSelected(4);
         }
-
         
+        private void ManualButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ManualWindow(true).Show();
+        }
     }
 }

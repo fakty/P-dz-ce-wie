@@ -303,6 +303,26 @@ namespace Pędzące_Żółwie.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap manual01 {
+            get {
+                object obj = ResourceManager.GetObject("manual01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap manual02 {
+            get {
+                object obj = ResourceManager.GetObject("manual02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap token {
             get {
                 object obj = ResourceManager.GetObject("token", resourceCulture);

@@ -21,7 +21,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Button x:Name="PlayButton" Content="Nowa gra" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Style="{StaticResource AccentedSquareButtonStyle}" Click="PlayButton_Click" Padding="0" Width="160" FontSize="22" Height="40" />
-        <Button x:Name="SettingsButton" Content="Opcje" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Grid.Row="2" Height="40" Style="{StaticResource AccentedSquareButtonStyle}" Click="SettingsButton_Click" Padding="0" FontSize="22" />
+        <Button x:Name="ManualButton" Content="Zasady" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Grid.Row="2" Height="40" Style="{StaticResource AccentedSquareButtonStyle}" Click="ManualButton_Click" Padding="0" FontSize="22" />
         <Button x:Name="AuthorButton" Content="O autorze" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Grid.Row="3" Height="40" Style="{StaticResource AccentedSquareButtonStyle}" Click="AuthorButton_Click" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="22" />
         <Button x:Name="CloseButton" Content="Wyjdź" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Grid.Row="4" Height="40" Style="{StaticResource AccentedSquareButtonStyle}" Click="CloseButton_Click" Padding="0" FontSize="22" />
         <Image Grid.Row="0" x:Name="HeaderImage" Source="pack://siteoforigin:,,,/Resources/header.jpg" Stretch="UniformToFill"/>
