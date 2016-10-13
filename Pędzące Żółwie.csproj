@@ -141,6 +141,9 @@
     <Compile Include="Views\ColorSelectPrompt.xaml.cs">
       <DependentUpon>ColorSelectPrompt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EndGamePrompt.xaml.cs">
+      <DependentUpon>EndGamePrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ManualWindow.xaml.cs">
       <DependentUpon>ManualWindow.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ColorSelectPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EndGamePrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
