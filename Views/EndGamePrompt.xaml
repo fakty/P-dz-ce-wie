@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Height="350" Width="525" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1"
+        Height="410" Width="615" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1"
         ShowInTaskbar="False" ResizeMode="NoResize" IsCloseButtonEnabled="False" IsMaxRestoreButtonEnabled="False" IsMinButtonEnabled="False" IsWindowDraggable="False" ShowCloseButton="False" ShowIconOnTitleBar="False" ShowTitleBar="False" ShowSystemMenuOnRightClick="False" ShowMinButton="False" ShowMaxRestoreButton="False" ShowDialogsOverTitleBar="False">
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
-            
+
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
     <Grid>
@@ -18,6 +18,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+        <Grid Row="1" Name="PlayerGrid"/>
+        <Grid Row="2" Name="TurtleGrid"/>
+        <Button Grid.Row="0" x:Name="EndGame" Content="Zakończ" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="EndGame_Click"/>
+        <Label Grid.Row="0" x:Name="WinLabel" Content="Zwyciężył gracz 0!" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Center" FontSize="40"/>
     </Grid>
 </controls:MetroWindow>
 

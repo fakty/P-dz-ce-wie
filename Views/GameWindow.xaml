@@ -11,7 +11,7 @@
         <controls:WindowCommands>
             <Button Name="ManualButton" Click="ManualButton_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle Width="15" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_question}" />
                         </Rectangle.OpacityMask>
@@ -34,8 +34,8 @@
         <Label x:Name="CurrentplayerName" Content="Gracz 1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontSize="58"/>
         <Grid Grid.Column="1" Margin="0" Grid.Row="1" Background="GreenYellow">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.1*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="0.7*"/>
                 <ColumnDefinition Width="1.2*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

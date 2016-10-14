@@ -379,7 +379,7 @@ namespace Pędzące_Żółwie.Controllers
             _currentId = int.Parse(second.ToString().Substring(second.ToString().Length - 1)) - 1;
         }
 
-        private bool CheckWinner()
+        private void CheckWinner()
         {
             Turtle[] finishedTurtles = {Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull};
 
@@ -392,33 +392,23 @@ namespace Pędzące_Żółwie.Controllers
             var finishedTurtlesCount = 5;
             while (finishedTurtlesCount > 0 && finishedTurtles[finishedTurtlesCount - 1] == Turtle.Colorfull) finishedTurtlesCount--;
 
-            if (finishedTurtlesCount > 0)
+            if (finishedTurtlesCount <= 0) return;
+            var winPlayer = -1;
+            for (var i = 0; i < finishedTurtlesCount && winPlayer == -1; i++)
             {
-                var winPlayers = new int[finishedTurtlesCount];
-                winPlayers[0] = -1;
-                var pos = 0;
-                for (var i = 0; i < finishedTurtlesCount; i++)
+                for(var j = 0; j < Players.Length && winPlayer == -1; j++)
                 {
-                    for(var j = 0; j < Players.Length; j++)
-                    {
-                        if (Players[j].PlayerTurtle != finishedTurtles[i]) continue;
-                        winPlayers[pos] = j;
-                        pos++;
-                    } 
-                }
-                if (winPlayers[0] == -1)
-                {
-                    new EndGamePrompt(MainWindow, false).Show();
-                }
-                else
-                {
-                    new EndGamePrompt(MainWindow, true, winPlayers).Show();
-                }
-                return true;
+                    if (Players[j].PlayerTurtle != finishedTurtles[i]) continue;
+                    winPlayer = j;
+                } 
+            }
+            if (winPlayer == -1)
+            {
+                new EndGamePrompt(MainWindow, false).Show();
             }
             else
             {
-                return false;
+                new EndGamePrompt(MainWindow, true, winPlayer + 1).Show();
             }
         }
     }
