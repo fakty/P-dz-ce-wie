@@ -117,6 +117,7 @@ namespace Pędzące_Żółwie.Controllers
                 if (turtle[0] < 0) turtle[0] = 0;
             }
             MoveTurtlesOnField(turtle[0], onTurtle);
+            if (turtle[0] == 9) CheckWinner();
         }
 
         private void MoveTurtlesOnField(int field, Turtle[] onTurtle)
@@ -332,6 +333,7 @@ namespace Pędzące_Żółwie.Controllers
         public void EndTurn()
         {
             ChangePlayer();
+
             MainWindow.PlayerTurtle.Source = Players[_currentId].TurtleSource;
 
             MainWindow.CardImage0.Source = Players[_currentId].Hand[0].CardImage;
@@ -375,6 +377,49 @@ namespace Pędzące_Żółwie.Controllers
             }
 
             _currentId = int.Parse(second.ToString().Substring(second.ToString().Length - 1)) - 1;
+        }
+
+        private bool CheckWinner()
+        {
+            Turtle[] finishedTurtles = {Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull};
+
+            if (_red[0] == 9) finishedTurtles[_red[1]] = Turtle.Red;
+            if (_blue[0] == 9) finishedTurtles[_blue[1]] = Turtle.Blue;
+            if (_green[0] == 9) finishedTurtles[_green[1]] = Turtle.Green;
+            if (_yellow[0] == 9) finishedTurtles[_yellow[1]] = Turtle.Yellow;
+            if (_violet[0] == 9) finishedTurtles[_violet[1]] = Turtle.Violet;
+
+            var finishedTurtlesCount = 5;
+            while (finishedTurtlesCount > 0 && finishedTurtles[finishedTurtlesCount - 1] == Turtle.Colorfull) finishedTurtlesCount--;
+
+            if (finishedTurtlesCount > 0)
+            {
+                var winPlayers = new int[finishedTurtlesCount];
+                winPlayers[0] = -1;
+                var pos = 0;
+                for (var i = 0; i < finishedTurtlesCount; i++)
+                {
+                    for(var j = 0; j < Players.Length; j++)
+                    {
+                        if (Players[j].PlayerTurtle != finishedTurtles[i]) continue;
+                        winPlayers[pos] = j;
+                        pos++;
+                    } 
+                }
+                if (winPlayers[0] == -1)
+                {
+                    new EndGamePrompt(MainWindow, false).Show();
+                }
+                else
+                {
+                    new EndGamePrompt(MainWindow, true, winPlayers).Show();
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
