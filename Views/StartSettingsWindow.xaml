@@ -6,7 +6,7 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:system="clr-namespace:System;assembly=mscorlib" x:Class="Pędzące_Żółwie.Views.StartSettingsWindow"
         mc:Ignorable="d"
-        Title="Ustawienia" Height="376.705" Width="506.955" ResizeMode="NoResize" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen">
+        Title="Ustawienia" Height="376.705" Width="506.955" ResizeMode="NoResize" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1">
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
 
