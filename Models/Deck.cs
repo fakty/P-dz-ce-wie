@@ -7,10 +7,12 @@ namespace Pędzące_Żółwie.Models
     {
         private static Deck _instance;
         private readonly ArrayList _deck;
+        private readonly Random _random;
 
         private Deck()
         {
             _deck = new ArrayList();
+            _random = new Random();
             Shuffle();
         }
 
@@ -67,7 +69,7 @@ namespace Pędzące_Żółwie.Models
             {
                 Shuffle();
             }
-            var index = new Random().Next(0, _deck.Count);
+            var index = _random.Next(0, _deck.Count);
             var result = _deck[index] as Card;
             _deck.RemoveAt(index);
             return result;

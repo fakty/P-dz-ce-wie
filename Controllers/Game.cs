@@ -367,7 +367,9 @@ namespace Pędzące_Żółwie.Controllers
                 MainWindow.CardImage3.Source = _card;
                 MainWindow.CardImage4.Source = _card;
 
-                if(!_endGameFlag) CardSelected(2);
+                //System.Threading.Thread.Sleep(1000);
+
+                if (!_endGameFlag) CardSelected(2);
             }
         }
 
