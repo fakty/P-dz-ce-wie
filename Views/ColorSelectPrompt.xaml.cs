@@ -14,7 +14,7 @@ namespace Pędzące_Żółwie
     public partial class ColorSelectPrompt
     {
         private readonly GameWindow _gameWindow;
-        private Card _card;
+        private readonly Card _card;
 
         public ColorSelectPrompt(Card card, string[] posColors, GameWindow gameWindow)
         {
@@ -48,7 +48,6 @@ namespace Pędzące_Żółwie
         {
             _gameWindow.IsEnabled = true;
             Game.Instance.MoveColored(_card, Button1.Content as string);
-            Game.Instance.EndTurn();
             Close();
         }
 
@@ -56,7 +55,6 @@ namespace Pędzące_Żółwie
         {
             _gameWindow.IsEnabled = true;
             Game.Instance.MoveColored(_card, Button2.Content as string);
-            Game.Instance.EndTurn();
             Close();
         }
 
@@ -64,7 +62,6 @@ namespace Pędzące_Żółwie
         {
             _gameWindow.IsEnabled = true;
             Game.Instance.MoveColored(_card, Button3.Content as string);
-            Game.Instance.EndTurn();
             Close();
         }
 
@@ -72,7 +69,6 @@ namespace Pędzące_Żółwie
         {
             _gameWindow.IsEnabled = true;
             Game.Instance.MoveColored(_card, Button4.Content as string);
-            Game.Instance.EndTurn();
             Close();
         }
 
@@ -80,16 +76,15 @@ namespace Pędzące_Żółwie
         {
             _gameWindow.IsEnabled = true;
             Game.Instance.MoveColored(_card, Button5.Content as string);
-            Game.Instance.EndTurn();
             Close();
         }
 
-        private Turtle GetTurtle(string turtleColor)
+        /*private Turtle GetTurtle(string turtleColor)
         {
             if(turtleColor.Equals("czerwony")) return Turtle.Red;
             if(turtleColor.Equals("niebieski")) return Turtle.Blue;
             if(turtleColor.Equals("zielony")) return Turtle.Green;
             return turtleColor.Equals("fioletowy") ? Turtle.Violet : Turtle.Yellow;
-        }
+        }*/
     }
 }

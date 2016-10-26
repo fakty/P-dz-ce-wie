@@ -62,7 +62,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>11618F53BFF8E0FC83FB4A3FCCE213F463662E72</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>15AD21764A71BC661D7272F7037C00848F0C8C91</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Pędzące Żółwie_TemporaryKey.pfx</ManifestKeyFile>
@@ -71,7 +71,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -238,6 +238,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Pędzące Żółwie_TemporaryKey.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\turtle.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

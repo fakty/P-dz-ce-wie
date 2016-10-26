@@ -11,8 +11,12 @@ namespace Pędzące_Żółwie.Controllers
     public class Game
     {
         private static Game _instance;
-        private int _currentId;
+        private int _currentId; //id of current player
         //private readonly Deck _deck;
+
+        //blank card + token
+        private readonly BitmapSource _token;
+        private readonly BitmapSource _card;
 
         //turtles
         private readonly int[] _blue;
@@ -30,6 +34,9 @@ namespace Pędzące_Żółwie.Controllers
 
         //empty '0'-position
         private readonly ArrayList _emptyZeros;
+
+        //EndGame flag
+        private bool _endGameFlag = false;
 
         public int PlayersCount = 2;
         public GameWindow MainWindow { get; set; }
@@ -56,11 +63,14 @@ namespace Pędzące_Żółwie.Controllers
             _turtleGreen = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.turtle_green.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
             _turtleViolet = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.turtle_violet.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
             _turtleYellow = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.turtle_yellow.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+
+            _token = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.token.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            _card = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         }
 
         public static Game Instance => _instance ?? (_instance = new Game());
 
-        public void AddPlayers()
+        public void AddPlayers(string[] playersType)
         {
             Players = new Player[PlayersCount];
             var turtles = new ArrayList { Turtle.Blue, Turtle.Green, Turtle.Red, Turtle.Violet, Turtle.Yellow };
@@ -68,7 +78,7 @@ namespace Pędzące_Żółwie.Controllers
             var random = new Random();
             for (var i = 0; i < Players.Length; i++)
             {
-                Players[i] = new Player((Turtle)turtles[random.Next(count)]);
+                Players[i] = new Player((Turtle)turtles[random.Next(count)], playersType[i]);
                 turtles.Remove(Players[i].PlayerTurtle);
                 count--;
             }
@@ -278,7 +288,8 @@ namespace Pędzące_Żółwie.Controllers
         private void ColorCardSelected(Card card)
         {
             var colors = !card.Sign.Equals("arrow") ? new[] { "zielony", "czerwony", "niebieski", "żółty", "fioletowy" } : SelectColorsForArrow();
-            new ColorSelectPrompt(card, colors, MainWindow).Show();
+            if (Players[_currentId].PlayerType.Equals("Człowiek")) new ColorSelectPrompt(card, colors, MainWindow).Show();
+            else MoveColored(card, colors[0]);
         }
 
         private string[] SelectColorsForArrow()
@@ -328,19 +339,36 @@ namespace Pędzące_Żółwie.Controllers
                     break;
             }
             Move(card, turtle);
+            EndTurn();
         }
 
         public void EndTurn()
         {
             ChangePlayer();
+            if (Players[_currentId].PlayerType.Equals("Człowiek"))
+            {
+                MainWindow.SetCursor();
+                MainWindow.PlayerTurtle.Source = Players[_currentId].TurtleSource;
 
-            MainWindow.PlayerTurtle.Source = Players[_currentId].TurtleSource;
+                MainWindow.CardImage0.Source = Players[_currentId].Hand[0].CardImage;
+                MainWindow.CardImage1.Source = Players[_currentId].Hand[1].CardImage;
+                MainWindow.CardImage2.Source = Players[_currentId].Hand[2].CardImage;
+                MainWindow.CardImage3.Source = Players[_currentId].Hand[3].CardImage;
+                MainWindow.CardImage4.Source = Players[_currentId].Hand[4].CardImage;
+            }
+            else
+            {
+                MainWindow.SetWaitCursor();
+                MainWindow.PlayerTurtle.Source = _token;
 
-            MainWindow.CardImage0.Source = Players[_currentId].Hand[0].CardImage;
-            MainWindow.CardImage1.Source = Players[_currentId].Hand[1].CardImage;
-            MainWindow.CardImage2.Source = Players[_currentId].Hand[2].CardImage;
-            MainWindow.CardImage3.Source = Players[_currentId].Hand[3].CardImage;
-            MainWindow.CardImage4.Source = Players[_currentId].Hand[4].CardImage;
+                MainWindow.CardImage0.Source = _card;
+                MainWindow.CardImage1.Source = _card;
+                MainWindow.CardImage2.Source = _card;
+                MainWindow.CardImage3.Source = _card;
+                MainWindow.CardImage4.Source = _card;
+
+                if(!_endGameFlag) CardSelected(2);
+            }
         }
 
         private void ChangePlayer()
@@ -381,6 +409,7 @@ namespace Pędzące_Żółwie.Controllers
 
         private void CheckWinner()
         {
+            _endGameFlag = true;
             Turtle[] finishedTurtles = {Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull};
 
             if (_red[0] == 9) finishedTurtles[_red[1]] = Turtle.Red;

@@ -11,6 +11,7 @@ namespace Pędzące_Żółwie.Views
     public partial class StartSettingsWindow
     {
         private int _activePlayersCount;
+        private string[] _playersType;
 
         public StartSettingsWindow()
         {
@@ -26,7 +27,8 @@ namespace Pędzące_Żółwie.Views
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            new GameWindow(_activePlayersCount).Show();
+            GetPlayersType();
+            new GameWindow(_activePlayersCount, _playersType).Show();
             Close();
         }
 
@@ -63,6 +65,47 @@ namespace Pędzące_Żółwie.Views
             {
                 Player3Settings.IsEnabled = true;
                 Player3Type.IsEnabled = true;
+            }
+        }
+
+        private void GetPlayersType()
+        {
+            switch (_activePlayersCount)
+            {
+                case 5:
+                    _playersType = new[]
+                    {
+                        Player1Type.Items[Player1Type.SelectedIndex].ToString(),
+                        Player2Type.Items[Player2Type.SelectedIndex].ToString(),
+                        Player3Type.Items[Player3Type.SelectedIndex].ToString(),
+                        Player4Type.Items[Player4Type.SelectedIndex].ToString(),
+                        Player5Type.Items[Player5Type.SelectedIndex].ToString(),
+                    };
+                    break;
+                case 4:
+                    _playersType = new[]
+                    {
+                        Player1Type.Items[Player1Type.SelectedIndex].ToString(),
+                        Player2Type.Items[Player2Type.SelectedIndex].ToString(),
+                        Player3Type.Items[Player3Type.SelectedIndex].ToString(),
+                        Player4Type.Items[Player4Type.SelectedIndex].ToString()
+                    };
+                    break;
+                case 3:
+                    _playersType = new[]
+                    {
+                        Player1Type.Items[Player1Type.SelectedIndex].ToString(),
+                        Player2Type.Items[Player2Type.SelectedIndex].ToString(),
+                        Player3Type.Items[Player3Type.SelectedIndex].ToString()
+                    };
+                    break;
+                default:
+                    _playersType = new[]
+                    {
+                        Player1Type.Items[Player1Type.SelectedIndex].ToString(),
+                        Player2Type.Items[Player2Type.SelectedIndex].ToString()
+                    };
+                    break;
             }
         }
     }

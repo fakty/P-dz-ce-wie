@@ -60,8 +60,8 @@ namespace Pędzące_Żółwie
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
             Game.DeleteGame();
-            new MainWindow().Show();
             _gameWindow.Close();
+            new MainWindow().Show();
             Close();
         }
     }

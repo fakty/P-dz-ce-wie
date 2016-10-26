@@ -13,19 +13,19 @@ namespace Pędzące_Żółwie.Views
     public partial class GameWindow
     {
         private readonly Cursor _cursor;
-        //private readonly Cursor _waitCursor;
+        private readonly Cursor _waitCursor;
         private readonly Game _gameController;
 
-        public GameWindow(int playersCount)
+        public GameWindow(int playersCount, string[] playersType)
         {
             InitializeComponent();
             _gameController = Game.Instance;
             _gameController.PlayersCount = playersCount;
-            _gameController.AddPlayers();
+            _gameController.AddPlayers(playersType);
             _gameController.MainWindow = this;
 
             _cursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green.cur"));
-            //_waitCursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green_busy.cur"));
+            _waitCursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green_busy.cur"));
 
             Cursor = _cursor;
 
@@ -111,6 +111,16 @@ namespace Pędzące_Żółwie.Views
         private void ManualButton_Click(object sender, RoutedEventArgs e)
         {
             new ManualWindow(true).Show();
+        }
+
+        public void SetCursor()
+        {
+            Cursor = _cursor;
+        }
+
+        public void SetWaitCursor()
+        {
+            Cursor = _waitCursor;
         }
     }
 }

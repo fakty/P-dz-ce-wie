@@ -8,12 +8,13 @@ namespace Pędzące_Żółwie.Controllers
     public class Player
     {
         public Card[] Hand { get; }
-
         public Turtle PlayerTurtle { get; set; }
         public BitmapSource TurtleSource { get; }
+        public string PlayerType { get; }
 
-        public Player(Turtle turtle)
+        public Player(Turtle turtle, string playerType)
         {
+            PlayerType = playerType;
             Hand = new Card[5];
             for (var i = 0; i < 5; i++)
             {
