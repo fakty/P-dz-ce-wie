@@ -6,7 +6,7 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Height="410" Width="615" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1"
-        ShowInTaskbar="False" ResizeMode="NoResize" IsCloseButtonEnabled="False" IsMaxRestoreButtonEnabled="False" IsMinButtonEnabled="False" IsWindowDraggable="False" ShowCloseButton="False" ShowIconOnTitleBar="False" ShowTitleBar="False" ShowSystemMenuOnRightClick="False" ShowMinButton="False" ShowMaxRestoreButton="False" ShowDialogsOverTitleBar="False">
+        ShowInTaskbar="False" ResizeMode="NoResize" IsCloseButtonEnabled="False" IsMaxRestoreButtonEnabled="False" IsMinButtonEnabled="False" IsWindowDraggable="True" ShowCloseButton="False" ShowIconOnTitleBar="False" ShowTitleBar="False" ShowSystemMenuOnRightClick="False" ShowMinButton="False" ShowMaxRestoreButton="False" ShowDialogsOverTitleBar="False" Topmost="True">
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
 
