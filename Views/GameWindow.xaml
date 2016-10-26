@@ -6,7 +6,7 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="Pędzące Żółwie" Height="720" Width="1280" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" 
-        GlowBrush="{DynamicResource AccentColorBrush}" WindowState="Maximized">
+        GlowBrush="{DynamicResource AccentColorBrush}" WindowState="Maximized" ResizeMode="CanMinimize" WindowStyle="None" IsWindowDraggable="False">
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
             <Button Name="ManualButton" Click="ManualButton_Click">
