@@ -489,14 +489,14 @@ namespace Pędzące_Żółwie.Controllers
             if (winPlayer == -1)
             {
                 new EndGamePrompt(MainWindow, false).Show();
-                _log.WriteLine(logLine = "*****Brak zwycięzcy*****");
+                _log.WriteLine(logLine = "*****Brak zwycięzcy*****\n");
                 _log.WriteLine();
                 MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             }
             else
             {
                 new EndGamePrompt(MainWindow, true, winPlayer).Show();
-                _log.WriteLine(logLine = "*****Zwycięzca: Grzacz " + winPlayer + "*****");
+                _log.WriteLine(logLine = "*****Zwycięzca: Grzacz " + winPlayer + "*****\n");
                 _log.WriteLine();
                 MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             }
