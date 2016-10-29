@@ -2,10 +2,12 @@
 using System.Collections;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Pędzące_Żółwie.Controllers;
+using Pędzące_Żółwie.Views;
 
-namespace Pędzące_Żółwie.Views
+namespace Pędzące_Żółwie
 {
     /// <summary>
     /// Logika interakcji dla klasy GameWindow.xaml
@@ -16,9 +18,15 @@ namespace Pędzące_Żółwie.Views
         private readonly Cursor _waitCursor;
         private readonly Game _gameController;
 
-        public GameWindow(int playersCount, string[] playersType)
+        public GameWindow(int playersCount, string[] playersType, bool logEnable)
         {
             InitializeComponent();
+            if (!logEnable)
+            {
+                LogBlock.Visibility = Visibility.Hidden;
+                LogBorder.Visibility = Visibility.Hidden;
+            }
+
             _gameController = Game.Instance;
             _gameController.PlayersCount = playersCount;
             _gameController.AddPlayers(playersType);
@@ -121,6 +129,11 @@ namespace Pędzące_Żółwie.Views
         public void SetWaitCursor()
         {
             Cursor = _waitCursor;
+        }
+
+        public TextBlock GetLogBlock()
+        {
+            return LogBlock;
         }
     }
 }

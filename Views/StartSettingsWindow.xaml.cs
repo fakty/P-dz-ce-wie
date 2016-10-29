@@ -2,8 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Pędzące_Żółwie.Views;
 
-namespace Pędzące_Żółwie.Views
+namespace Pędzące_Żółwie
 {
     /// <summary>
     /// Interaction logic for StartSettingsWindow.xaml
@@ -28,7 +29,7 @@ namespace Pędzące_Żółwie.Views
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
             GetPlayersType();
-            new GameWindow(_activePlayersCount, _playersType).Show();
+            new GameWindow(_activePlayersCount, _playersType, (bool)LogBox.IsChecked).Show();
             Close();
         }
 

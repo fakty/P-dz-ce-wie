@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Pędzące_Żółwie.Models;
-using Pędzące_Żółwie.Views;
 
 namespace Pędzące_Żółwie.Controllers
 {
@@ -12,7 +11,6 @@ namespace Pędzące_Żółwie.Controllers
     {
         private static Game _instance;
         private int _currentId; //id of current player
-        //private readonly Deck _deck;
 
         //blank card + token
         private readonly BitmapSource _token;
@@ -36,22 +34,24 @@ namespace Pędzące_Żółwie.Controllers
         private readonly ArrayList _emptyZeros;
 
         //EndGame flag
-        private bool _endGameFlag = false;
+        private bool _endGameFlag;
 
         public int PlayersCount = 2;
         public GameWindow MainWindow { get; set; }
+        private readonly Log _log;
         public Player[] Players { get; set; }
 
         public static void DeleteGame()
         {
             _instance = null;
-            Deck.deleteDeck();
+            Deck.DeleteDeck();
         }
 
         private Game()
         {
+            _log = Log.Instance;
             _emptyZeros = new ArrayList();
-            //_deck = Deck.Instance;
+
             _yellow = new[] {0, 0};
             _violet = new[] {0, 1};
             _red = new[] {0, 2};
@@ -66,6 +66,8 @@ namespace Pędzące_Żółwie.Controllers
 
             _token = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.token.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
             _card = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            
+            _log.WriteLine("----------NEW GAME " + string.Format("{0:G}", DateTime.Now) + "----------");
         }
 
         public static Game Instance => _instance ?? (_instance = new Game());
@@ -82,6 +84,31 @@ namespace Pędzące_Żółwie.Controllers
                 turtles.Remove(Players[i].PlayerTurtle);
                 count--;
             }
+            var logPlayers = "";
+            for (var i = 0; i < Players.Length; i++)
+            {
+                logPlayers += "Gracz " + (i + 1) + ": ";
+                switch (Players[i].PlayerTurtle)
+                {
+                    case Turtle.Blue:
+                        logPlayers += "blue; ";
+                        break;
+                    case Turtle.Red:
+                        logPlayers += "red; ";
+                        break;
+                    case Turtle.Green:
+                        logPlayers += "green; ";
+                        break;
+                    case Turtle.Violet:
+                        logPlayers += "violet; ";
+                        break;
+                    default:
+                        logPlayers += "yellow; ";
+                        break;
+                }
+            }
+            _log.WriteLine(logPlayers);
+            _log.WriteLine();
         }
 
         public void CardSelected(int i)
@@ -91,21 +118,37 @@ namespace Pędzące_Żółwie.Controllers
                 ColorCardSelected(card);
             else
             {
+                var logLine = "Gracz " + (_currentId + 1);
                 switch (card.Color)
                 {
                     case Turtle.Blue:
+                        logLine += ": blue, " + card.Sign + ", " + card.Value + ";\n";
+                        _log.WriteLine(logLine);
+                        MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _blue);
                         break;
                     case Turtle.Green:
+                        logLine += ": green, " + card.Sign + ", " + card.Value + ";\n";
+                        _log.WriteLine(logLine);
+                        MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _green);
                         break;
                     case Turtle.Red:
+                        logLine += ": red, " + card.Sign + ", " + card.Value + ";\n";
+                        _log.WriteLine(logLine);
+                        MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _red);
                         break;
                     case Turtle.Violet:
+                        logLine += ": violet, " + card.Sign + ", " + card.Value + ";\n";
+                        _log.WriteLine(logLine);
+                        MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _violet);
                         break;
                     case Turtle.Yellow:
+                        logLine += ": yellow, " + card.Sign + ", " + card.Value + ";\n";
+                        _log.WriteLine(logLine);
+                        MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _yellow);
                         break;
                 }
@@ -319,26 +362,35 @@ namespace Pędzące_Żółwie.Controllers
 
         public void MoveColored(Card card, string color)
         {
+            var logLine = "Gracz " + (_currentId + 1) + ": color ";
             int[] turtle;
             switch (color)
             {
                 case "czerwony":
                     turtle = _red;
+                    logLine += "(red), ";
                     break;
                 case "fioletowy":
                     turtle = _violet;
+                    logLine += "(violet), ";
                     break;
                 case "zielony":
                     turtle = _green;
+                    logLine += "(green), ";
                     break;
                 case "niebieski":
                     turtle = _blue;
+                    logLine += "(blue), ";
                     break;
                 default:
                     turtle = _yellow;
+                    logLine += "(yellow), ";
                     break;
             }
             Move(card, turtle);
+            logLine += card.Sign + ", " + card.Value + ";\n";
+            _log.WriteLine(logLine);
+            MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             EndTurn();
         }
 
@@ -430,16 +482,23 @@ namespace Pędzące_Żółwie.Controllers
                 for(var j = 0; j < Players.Length && winPlayer == -1; j++)
                 {
                     if (Players[j].PlayerTurtle != finishedTurtles[i]) continue;
-                    winPlayer = j;
+                    winPlayer = j + 1;
                 } 
             }
+            string logLine;
             if (winPlayer == -1)
             {
                 new EndGamePrompt(MainWindow, false).Show();
+                _log.WriteLine(logLine = "*****Brak zwycięzcy*****");
+                _log.WriteLine();
+                MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             }
             else
             {
-                new EndGamePrompt(MainWindow, true, winPlayer + 1).Show();
+                new EndGamePrompt(MainWindow, true, winPlayer).Show();
+                _log.WriteLine(logLine = "*****Zwycięzca: Grzacz " + winPlayer + "*****");
+                _log.WriteLine();
+                MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             }
         }
     }
