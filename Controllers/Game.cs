@@ -122,31 +122,31 @@ namespace Pędzące_Żółwie.Controllers
                 switch (card.Color)
                 {
                     case Turtle.Blue:
-                        logLine += ": blue, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": niebieski, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _blue);
                         break;
                     case Turtle.Green:
-                        logLine += ": green, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": zielony, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _green);
                         break;
                     case Turtle.Red:
-                        logLine += ": red, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": czerwony, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _red);
                         break;
                     case Turtle.Violet:
-                        logLine += ": violet, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": fioletowy, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _violet);
                         break;
                     case Turtle.Yellow:
-                        logLine += ": yellow, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": żółty, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _yellow);
@@ -362,29 +362,29 @@ namespace Pędzące_Żółwie.Controllers
 
         public void MoveColored(Card card, string color)
         {
-            var logLine = "Gracz " + (_currentId + 1) + ": color ";
+            var logLine = "Gracz " + (_currentId + 1) + ": kolor ";
             int[] turtle;
             switch (color)
             {
                 case "czerwony":
                     turtle = _red;
-                    logLine += "(red), ";
+                    logLine += "(czerwony), ";
                     break;
                 case "fioletowy":
                     turtle = _violet;
-                    logLine += "(violet), ";
+                    logLine += "(fioletowy), ";
                     break;
                 case "zielony":
                     turtle = _green;
-                    logLine += "(green), ";
+                    logLine += "(zielony), ";
                     break;
                 case "niebieski":
                     turtle = _blue;
-                    logLine += "(blue), ";
+                    logLine += "(niebieski), ";
                     break;
                 default:
                     turtle = _yellow;
-                    logLine += "(yellow), ";
+                    logLine += "(żółty), ";
                     break;
             }
             Move(card, turtle);
@@ -486,6 +486,7 @@ namespace Pędzące_Żółwie.Controllers
                 } 
             }
             string logLine;
+            _log.WriteLine();
             if (winPlayer == -1)
             {
                 new EndGamePrompt(MainWindow, false).Show();
