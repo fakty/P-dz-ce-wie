@@ -25,6 +25,7 @@ namespace Pędzące_Żółwie
             {
                 LogBlock.Visibility = Visibility.Hidden;
                 LogBorder.Visibility = Visibility.Hidden;
+                LogDescr.Visibility = Visibility.Hidden;
             }
 
             _gameController = Game.Instance;

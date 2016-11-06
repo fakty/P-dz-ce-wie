@@ -11,6 +11,7 @@ namespace Pędzące_Żółwie.Controllers
     {
         private static Game _instance;
         private int _currentId; //id of current player
+        private readonly Random _random;
 
         //blank card + token
         private readonly BitmapSource _token;
@@ -49,6 +50,7 @@ namespace Pędzące_Żółwie.Controllers
 
         private Game()
         {
+            _random = new Random();
             _log = Log.Instance;
             _emptyZeros = new ArrayList();
 
@@ -332,7 +334,7 @@ namespace Pędzące_Żółwie.Controllers
         {
             var colors = !card.Sign.Equals("arrow") ? new[] { "zielony", "czerwony", "niebieski", "żółty", "fioletowy" } : SelectColorsForArrow();
             if (Players[_currentId].PlayerType.Equals("Człowiek")) new ColorSelectPrompt(card, colors, MainWindow).Show();
-            else MoveColored(card, colors[0]);
+            else MoveColored(card, colors[_random.Next(colors.Length)]);
         }
 
         private string[] SelectColorsForArrow()
@@ -421,7 +423,7 @@ namespace Pędzące_Żółwie.Controllers
 
                 //System.Threading.Thread.Sleep(1000);
 
-                if (!_endGameFlag) CardSelected(2);
+                if (!_endGameFlag) CardSelected(_random.Next(5));
             }
         }
 
