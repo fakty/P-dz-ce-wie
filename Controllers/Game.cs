@@ -389,10 +389,10 @@ namespace Pędzące_Żółwie.Controllers
                     logLine += "(żółty), ";
                     break;
             }
-            Move(card, turtle);
             logLine += card.Sign + ", " + card.Value + ";\n";
             _log.WriteLine(logLine);
             MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
+            Move(card, turtle);
             EndTurn();
         }
 

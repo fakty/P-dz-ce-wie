@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Input;
 using Pędzące_Żółwie.Controllers;
 using Pędzące_Żółwie.Models;
-using Pędzące_Żółwie.Views;
 
 namespace Pędzące_Żółwie
 {
