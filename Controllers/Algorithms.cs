@@ -129,7 +129,7 @@ namespace Pędzące_Żółwie.Controllers
 
         private int MaskCalculate(int turtlePos, int playerTurtlePos, Turtle playerTurtle, Card card, Turtle cardTurtle)
         {
-            var value = 0;
+            int value;
 
             if (card.Sign.Equals("minus")) value = -card.Value;
             else value = 3 - card.Value;
