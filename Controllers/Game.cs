@@ -19,8 +19,8 @@ namespace Pędzące_Żółwie.Controllers
 
         //turtles
         private readonly int[] _blue;
-        private readonly int[] _red;
         private readonly int[] _green;
+        private readonly int[] _red;
         private readonly int[] _violet;
         private readonly int[] _yellow;
 
@@ -78,36 +78,32 @@ namespace Pędzące_Żółwie.Controllers
         {
             Players = new Player[PlayersCount];
             var turtles = new ArrayList { Turtle.Blue, Turtle.Green, Turtle.Red, Turtle.Violet, Turtle.Yellow };
-            var count = PlayersCount;
             var random = new Random();
-            for (var i = 0; i < Players.Length; i++)
-            {
-                Players[i] = new Player((Turtle)turtles[random.Next(count)], playersType[i]);
-                turtles.Remove(Players[i].PlayerTurtle);
-                count--;
-            }
             var logPlayers = "";
             for (var i = 0; i < Players.Length; i++)
             {
+                Players[i] = new Player((Turtle)turtles[random.Next(turtles.Count)], playersType[i]);
+                turtles.Remove(Players[i].PlayerTurtle);
                 logPlayers += "Gracz " + (i + 1) + ": ";
                 switch (Players[i].PlayerTurtle)
                 {
                     case Turtle.Blue:
-                        logPlayers += "blue; ";
+                        logPlayers += "blue ";
                         break;
                     case Turtle.Red:
-                        logPlayers += "red; ";
+                        logPlayers += "red ";
                         break;
                     case Turtle.Green:
-                        logPlayers += "green; ";
+                        logPlayers += "green ";
                         break;
                     case Turtle.Violet:
-                        logPlayers += "violet; ";
+                        logPlayers += "violet ";
                         break;
                     default:
-                        logPlayers += "yellow; ";
+                        logPlayers += "yellow ";
                         break;
                 }
+                logPlayers += "(" + Players[i].PlayerType + ");";
             }
             _log.WriteLine(logPlayers);
             _log.WriteLine();
@@ -332,12 +328,20 @@ namespace Pędzące_Żółwie.Controllers
 
         private void ColorCardSelected(Card card)
         {
+            var turtles = new[] {_blue[0], _green[0], _red[0], _violet[0], _yellow[0]};
             var colors = !card.Sign.Equals("arrow") ? new[] { "zielony", "czerwony", "niebieski", "żółty", "fioletowy" } : SelectColorsForArrow();
             if (Players[_currentId].PlayerType.Equals("Człowiek")) new ColorSelectPrompt(card, colors, MainWindow).Show();
-            else MoveColored(card, colors[_algorithms.EvaluateStrategyColor(Players[_currentId].PlayerType, card, colors)]);
+            else MoveColored(card, colors[_algorithms.EvaluateStrategyColor(
+                                                                            turtles, 
+                                                                            Players[_currentId],
+                                                                            card, 
+                                                                            StringToTurtle(colors),
+                                                                            turtles[(int) Players[_currentId].PlayerTurtle]
+                                                                            )
+                                        ]);
         }
 
-        private string[] SelectColorsForArrow()
+        public string[] SelectColorsForArrow()
         {
             var min = 9;
             if (_red[0] < min) min = _red[0];
@@ -423,7 +427,18 @@ namespace Pędzące_Żółwie.Controllers
 
                 //System.Threading.Thread.Sleep(1000);
 
-                if (!_endGameFlag) CardSelected(_algorithms.EvaluateStrategy(Players[_currentId]));
+                if (!_endGameFlag)
+                {
+                    var turtles = new[] {_blue[0], _green[0], _red[0], _violet[0], _yellow[0]};
+                    CardSelected(_algorithms.EvaluateStrategy(
+                                                             turtles, 
+                                                             Players[_currentId], 
+                                                             Players[_currentId].Hand, 
+                                                             StringToTurtle(SelectColorsForArrow()),
+                                                             turtles[(int)Players[_currentId].PlayerTurtle]
+                                                             )
+                                );
+                }
             }
         }
 
@@ -502,6 +517,33 @@ namespace Pędzące_Żółwie.Controllers
                 _log.WriteLine(logLine = "*****Zwycięzca: Grzacz " + winPlayer + "*****\n");
                 _log.WriteLine();
                 MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
+            }
+        }
+
+        private Turtle[] StringToTurtle(string[] turtles)
+        {
+            var turtlesRes = new Turtle[turtles.Length];
+            for (var i = 0; i < turtles.Length; i++)
+            {
+                turtlesRes[i] = StringToTurtle(turtles[i]);
+            }
+            return turtlesRes;
+        }
+
+        private Turtle StringToTurtle(string turtle)
+        {
+            switch (turtle)
+            {
+                case "czerwony":
+                    return Turtle.Red;
+                case "fioletowy":
+                    return Turtle.Violet;
+                case "zielony":
+                    return Turtle.Green;
+                case "niebieski":
+                    return Turtle.Blue;
+                default:
+                    return Turtle.Yellow;
             }
         }
     }
