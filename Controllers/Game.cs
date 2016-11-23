@@ -149,7 +149,7 @@ namespace Pędzące_Żółwie.Controllers
                     case Turtle.Yellow:
                         logLine += ": żółty, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
-                        MainWindow.GetLogBlock().Text = "<span style='color: blue;'>" + logLine + "</span>" + MainWindow.GetLogBlock().Text;
+                        MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _yellow);
                         break;
                 }
@@ -398,7 +398,7 @@ namespace Pędzące_Żółwie.Controllers
             }
             logLine += card.Sign + ", " + card.Value + ";\n";
             _log.WriteLine(logLine);
-            MainWindow.GetLogBlock().Text = "<span style='color: blue;'>" + logLine + "</span>" + MainWindow.GetLogBlock().Text;
+            MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             Move(card, turtle);
             EndTurn();
         }
