@@ -156,7 +156,11 @@
         </Grid>
         <Button x:Name="BackButton" Margin="5" Content="Powrót do&#x0a;menu" Grid.Column="0" Grid.Row="2" FontSize="32" Style="{StaticResource SquareButtonStyle}" Click="BackButton_Click"/>
         <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2" Grid.Row="2" Margin="15" Name="LogBorder">
-            <TextBlock x:Name="LogBlock" TextWrapping="Wrap" FontSize="14"/>
+            <TextBlock x:Name="LogBlock" TextWrapping="Wrap" FontSize="14">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/textblock_background.png"/>
+                </TextBlock.Background>
+            </TextBlock>
         </Border>
     </Grid>
 </controls:MetroWindow>
