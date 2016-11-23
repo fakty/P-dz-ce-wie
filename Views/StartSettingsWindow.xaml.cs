@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,7 +18,7 @@ namespace Pędzące_Żółwie
         public StartSettingsWindow()
         {
             InitializeComponent();
-            Cursor = new Cursor(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Resources\\green.cur"));
+            Cursor = new Cursor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\green.cur"));
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -28,6 +29,7 @@ namespace Pędzące_Żółwie
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
+            GC.Collect();
             GetPlayersType();
             new GameWindow(_activePlayersCount, _playersType, (bool)LogBox.IsChecked).Show();
             Close();

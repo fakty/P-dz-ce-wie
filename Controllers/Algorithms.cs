@@ -79,7 +79,7 @@ namespace Pędzące_Żółwie.Controllers
             {
                 if (card.Sign.Equals("minus"))
                 {
-                    turtlePos += -card.Value*10;
+                    turtlePos = -turtlePos - card.Value * 10;
                 }
                 else
                 {
@@ -94,7 +94,7 @@ namespace Pędzące_Żółwie.Controllers
                 }
                 else
                 {
-                    turtlePos += -card.Value;
+                    turtlePos = -turtlePos - card.Value;
                 }
             }
             return turtlePos;
@@ -106,7 +106,7 @@ namespace Pędzące_Żółwie.Controllers
             {
                 if (card.Sign.Equals("minus"))
                 {
-                    turtlePos += -card.Value * 10;
+                    turtlePos = -turtlePos - card.Value * 10;
                 }
                 else
                 {
@@ -121,7 +121,7 @@ namespace Pędzące_Żółwie.Controllers
                 }
                 else
                 {
-                    turtlePos += -card.Value;
+                    turtlePos = -turtlePos - card.Value;
                 }
             }
             return turtlePos;

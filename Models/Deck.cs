@@ -21,6 +21,7 @@ namespace Pędzące_Żółwie.Models
         public static void DeleteDeck()
         {
             _instance = null;
+            GC.Collect();
         }
 
         private void Shuffle()

@@ -44,8 +44,11 @@ namespace Pędzące_Żółwie.Controllers
 
         public static void DeleteGame()
         {
+            _instance.MainWindow = null;
+            _instance.Players = null;
             _instance = null;
             Deck.DeleteDeck();
+            GC.Collect();
         }
 
         private Game()
@@ -146,7 +149,7 @@ namespace Pędzące_Żółwie.Controllers
                     case Turtle.Yellow:
                         logLine += ": żółty, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
-                        MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
+                        MainWindow.GetLogBlock().Text = "<span style='color: blue;'>" + logLine + "</span>" + MainWindow.GetLogBlock().Text;
                         Move(card, _yellow);
                         break;
                 }
@@ -329,7 +332,7 @@ namespace Pędzące_Żółwie.Controllers
         private void ColorCardSelected(Card card)
         {
             var turtles = new[] {_blue[0], _green[0], _red[0], _violet[0], _yellow[0]};
-            var colors = !card.Sign.Equals("arrow") ? new[] { "zielony", "czerwony", "niebieski", "żółty", "fioletowy" } : SelectColorsForArrow();
+            var colors = !card.Sign.Equals("arrow") ? new[] { "niebieski", "zielony", "czerwony", "fioletowy", "żółty" } : SelectColorsForArrow();
             if (Players[_currentId].PlayerType.Equals("Człowiek")) new ColorSelectPrompt(card, colors, MainWindow).Show();
             else MoveColored(card, colors[_algorithms.EvaluateStrategyColor(
                                                                             turtles, 
@@ -395,7 +398,7 @@ namespace Pędzące_Żółwie.Controllers
             }
             logLine += card.Sign + ", " + card.Value + ";\n";
             _log.WriteLine(logLine);
-            MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
+            MainWindow.GetLogBlock().Text = "<span style='color: blue;'>" + logLine + "</span>" + MainWindow.GetLogBlock().Text;
             Move(card, turtle);
             EndTurn();
         }
