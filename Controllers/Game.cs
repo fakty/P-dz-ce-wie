@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -23,6 +24,8 @@ namespace Pędzące_Żółwie.Controllers
         private readonly int[] _red;
         private readonly int[] _violet;
         private readonly int[] _yellow;
+
+        private int maxTurtlePos = 0;
 
         //tokens
         private readonly BitmapSource _turtleBlue;
@@ -164,11 +167,15 @@ namespace Pędzące_Żółwie.Controllers
             {
                 turtle[0] += card.Value;
                 if (turtle[0] > 9) turtle[0] = 9;
+                if (maxTurtlePos < turtle[0]) maxTurtlePos = turtle[0];
             }
             else
             {
                 turtle[0] -= card.Value;
                 if (turtle[0] < 0) turtle[0] = 0;
+                maxTurtlePos = 0;
+                foreach (var turtlePos in turtle.Where(turtlePos => turtlePos > maxTurtlePos))
+                    maxTurtlePos = turtlePos;
             }
             MoveTurtlesOnField(turtle[0], onTurtle);
             if (turtle[0] == 9) CheckWinner();
@@ -339,7 +346,8 @@ namespace Pędzące_Żółwie.Controllers
                                                                             Players[_currentId],
                                                                             card, 
                                                                             StringToTurtle(colors),
-                                                                            turtles[(int) Players[_currentId].PlayerTurtle]
+                                                                            turtles[(int) Players[_currentId].PlayerTurtle],
+                                                                            maxTurtlePos
                                                                             )
                                         ]);
         }
@@ -438,7 +446,8 @@ namespace Pędzące_Żółwie.Controllers
                                                              Players[_currentId], 
                                                              Players[_currentId].Hand, 
                                                              StringToTurtle(SelectColorsForArrow()),
-                                                             turtles[(int)Players[_currentId].PlayerTurtle]
+                                                             turtles[(int)Players[_currentId].PlayerTurtle],
+                                                             maxTurtlePos
                                                              )
                                 );
                 }
