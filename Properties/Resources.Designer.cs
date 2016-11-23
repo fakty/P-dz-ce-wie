@@ -323,6 +323,16 @@ namespace Pędzące_Żółwie.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap textblock_background {
+            get {
+                object obj = ResourceManager.GetObject("textblock_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap token {
             get {
                 object obj = ResourceManager.GetObject("token", resourceCulture);
