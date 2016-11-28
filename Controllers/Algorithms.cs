@@ -25,7 +25,7 @@ namespace Pędzące_Żółwie.Controllers
 
         public int EvaluateStrategyColor(int[] turtlesPos, Player player, Card card, Turtle[] colors, int playerTurtlePos, int maxPosition)
         {
-            if (player.PlayerType.Equals("Strategia Random")) return _random.Next(5);
+            if (player.PlayerType.Equals("Strategia Random")) return _random.Next(colors.Length);
             var cards = new Card[colors.Length];
             for (var i = 0; i < colors.Length; i++)
             {

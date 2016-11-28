@@ -22,5 +22,24 @@ namespace Pędzące_Żółwie.Models
         public string Sign { get; }
 
         public int Value { get; }
+
+        public override string ToString()
+        {
+            switch (Color)
+            {
+                case Turtle.Blue:
+                    return "niebieski, " + Sign + ", " + Value;
+                case Turtle.Colorfull:
+                    return "kolor, " + Sign + ", " + Value;
+                case Turtle.Green:
+                    return "zielony, " + Sign + ", " + Value;
+                case Turtle.Red:
+                    return "czerwony, " + Sign + ", " + Value;
+                case Turtle.Violet:
+                    return "fioletowy, " + Sign + ", " + Value;
+                default:
+                    return "żółty, " + Sign + ", " + Value;
+            }
+        }
     }
 }

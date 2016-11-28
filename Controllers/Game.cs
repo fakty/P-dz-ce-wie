@@ -25,7 +25,7 @@ namespace Pędzące_Żółwie.Controllers
         private readonly int[] _violet;
         private readonly int[] _yellow;
 
-        private int maxTurtlePos = 0;
+        private int _maxTurtlePos;
 
         //tokens
         private readonly BitmapSource _turtleBlue;
@@ -94,22 +94,22 @@ namespace Pędzące_Żółwie.Controllers
                 switch (Players[i].PlayerTurtle)
                 {
                     case Turtle.Blue:
-                        logPlayers += "blue ";
+                        logPlayers += "niebieski ";
                         break;
                     case Turtle.Red:
-                        logPlayers += "red ";
+                        logPlayers += "czerwony ";
                         break;
                     case Turtle.Green:
-                        logPlayers += "green ";
+                        logPlayers += "zielony ";
                         break;
                     case Turtle.Violet:
-                        logPlayers += "violet ";
+                        logPlayers += "fioletowy ";
                         break;
                     default:
-                        logPlayers += "yellow ";
+                        logPlayers += "żółty ";
                         break;
                 }
-                logPlayers += "(" + Players[i].PlayerType + ");";
+                logPlayers += "(" + Players[i].PlayerType + "); ";
             }
             _log.WriteLine(logPlayers);
             _log.WriteLine();
@@ -117,6 +117,10 @@ namespace Pędzące_Żółwie.Controllers
 
         public void CardSelected(int i)
         {
+            /*foreach (var cardToLog in Players[_currentId].Hand)
+            {
+                _log.WriteLine("\t" + cardToLog + ";");
+            }*/
             var card = Players[_currentId].PlayCard(i);
             if (card.Color == Turtle.Colorfull)
                 ColorCardSelected(card);
@@ -167,15 +171,15 @@ namespace Pędzące_Żółwie.Controllers
             {
                 turtle[0] += card.Value;
                 if (turtle[0] > 9) turtle[0] = 9;
-                if (maxTurtlePos < turtle[0]) maxTurtlePos = turtle[0];
+                if (_maxTurtlePos < turtle[0]) _maxTurtlePos = turtle[0];
             }
             else
             {
                 turtle[0] -= card.Value;
                 if (turtle[0] < 0) turtle[0] = 0;
-                maxTurtlePos = 0;
-                foreach (var turtlePos in turtle.Where(turtlePos => turtlePos > maxTurtlePos))
-                    maxTurtlePos = turtlePos;
+                _maxTurtlePos = 0;
+                foreach (var turtlePos in turtle.Where(turtlePos => turtlePos > _maxTurtlePos))
+                    _maxTurtlePos = turtlePos;
             }
             MoveTurtlesOnField(turtle[0], onTurtle);
             if (turtle[0] == 9) CheckWinner();
@@ -347,7 +351,7 @@ namespace Pędzące_Żółwie.Controllers
                                                                             card, 
                                                                             StringToTurtle(colors),
                                                                             turtles[(int) Players[_currentId].PlayerTurtle],
-                                                                            maxTurtlePos
+                                                                            _maxTurtlePos
                                                                             )
                                         ]);
         }
@@ -447,7 +451,7 @@ namespace Pędzące_Żółwie.Controllers
                                                              Players[_currentId].Hand, 
                                                              StringToTurtle(SelectColorsForArrow()),
                                                              turtles[(int)Players[_currentId].PlayerTurtle],
-                                                             maxTurtlePos
+                                                             _maxTurtlePos
                                                              )
                                 );
                 }
