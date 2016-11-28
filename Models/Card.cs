@@ -7,9 +7,9 @@ namespace Pędzące_Żółwie.Models
 {
     public class Card
     {
-        public Card(Bitmap bitmap, Turtle color, string sign, int value)
+        public Card(BitmapSource bitmap, Turtle color, string sign, int value)
         {
-            if(bitmap != null) CardImage = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            CardImage = bitmap;
             Color = color;
             Sign = sign;
             Value = value;
