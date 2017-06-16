@@ -47,10 +47,10 @@ namespace Pędzące_Żółwie
                 temp[i] = i + 1;
             var array = new ArrayList(temp);
             playersCount--;
-            CurrentplayerName.Content = "Gracz " + array[curr = rnd.Next(0, playersCount)];
+            CurrentplayerName.Content = "Player " + array[curr = rnd.Next(0, playersCount)];
             array.RemoveAt(curr);
             playersCount--;
-            Queue1.Content = "Gracz " + array[curr = rnd.Next(0, playersCount)];
+            Queue1.Content = "Player " + array[curr = rnd.Next(0, playersCount)];
             array.RemoveAt(curr);
             playersCount--;
 
@@ -60,7 +60,7 @@ namespace Pędzące_Żółwie
             }
             else
             {
-                Queue2.Content = "Gracz " + array[curr = rnd.Next(0, playersCount)];
+                Queue2.Content = "Player " + array[curr = rnd.Next(0, playersCount)];
                 array.RemoveAt(curr);
                 playersCount--;
             }
@@ -70,7 +70,7 @@ namespace Pędzące_Żółwie
             }
             else
             {
-                Queue3.Content = "Gracz " + array[curr = rnd.Next(0, playersCount)];
+                Queue3.Content = "Player " + array[curr = rnd.Next(0, playersCount)];
                 array.RemoveAt(curr);
             }
             if (playersCount1 < 5)
@@ -79,7 +79,7 @@ namespace Pędzące_Żółwie
             }
             else
             {
-                Queue4.Content = "Gracz " + array[0];
+                Queue4.Content = "Player " + array[0];
             }
 
             _gameController.EndTurn();

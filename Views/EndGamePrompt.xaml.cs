@@ -23,15 +23,15 @@ namespace Pędzące_Żółwie
             _gameWindow.IsEnabled = false;
             var game = Game.Instance;
 
-            if (isWinner) WinLabel.Content = "Zwyciężył gracz " + winPlayer + "!";
-            else WinLabel.Content = "Nikt nie zwyciężył!";
+            if (isWinner) WinLabel.Content = "The winner is player " + winPlayer + "!";
+            else WinLabel.Content = "Nobody wins!";
 
             for (var i = 0; i < game.PlayersCount; i++)
             {
                 var colP = new ColumnDefinition {Width = new GridLength(1, GridUnitType.Star)};
                 var player = new Label
                 {
-                    Content = "Gracz " + (i + 1),
+                    Content = "Player " + (i + 1),
                     FontSize = 22,
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center

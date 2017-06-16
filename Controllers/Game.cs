@@ -90,23 +90,23 @@ namespace Pędzące_Żółwie.Controllers
             {
                 Players[i] = new Player((Turtle)turtles[random.Next(turtles.Count)], playersType[i]);
                 turtles.Remove(Players[i].PlayerTurtle);
-                logPlayers += "Gracz " + (i + 1) + ": ";
+                logPlayers += "Player " + (i + 1) + ": ";
                 switch (Players[i].PlayerTurtle)
                 {
                     case Turtle.Blue:
-                        logPlayers += "niebieski ";
+                        logPlayers += "blue ";
                         break;
                     case Turtle.Red:
-                        logPlayers += "czerwony ";
+                        logPlayers += "red ";
                         break;
                     case Turtle.Green:
-                        logPlayers += "zielony ";
+                        logPlayers += "green ";
                         break;
                     case Turtle.Violet:
-                        logPlayers += "fioletowy ";
+                        logPlayers += "violet ";
                         break;
                     default:
-                        logPlayers += "żółty ";
+                        logPlayers += "yellow ";
                         break;
                 }
                 logPlayers += "(" + Players[i].PlayerType + "); ";
@@ -122,39 +122,39 @@ namespace Pędzące_Żółwie.Controllers
                 _log.WriteLine("\t" + cardToLog + ";");
             }*/
             var card = Players[_currentId].PlayCard(i);
-            if (card.Color == Turtle.Colorfull)
+            if (card.Color == Turtle.Colourful)
                 ColorCardSelected(card);
             else
             {
-                var logLine = "Gracz " + (_currentId + 1);
+                var logLine = "Player " + (_currentId + 1);
                 switch (card.Color)
                 {
                     case Turtle.Blue:
-                        logLine += ": niebieski, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": blue, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _blue);
                         break;
                     case Turtle.Green:
-                        logLine += ": zielony, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": green, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _green);
                         break;
                     case Turtle.Red:
-                        logLine += ": czerwony, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": red, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _red);
                         break;
                     case Turtle.Violet:
-                        logLine += ": fioletowy, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": violet, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _violet);
                         break;
                     case Turtle.Yellow:
-                        logLine += ": żółty, " + card.Sign + ", " + card.Value + ";\n";
+                        logLine += ": yellow, " + card.Sign + ", " + card.Value + ";\n";
                         _log.WriteLine(logLine);
                         MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
                         Move(card, _yellow);
@@ -343,8 +343,8 @@ namespace Pędzące_Żółwie.Controllers
         private void ColorCardSelected(Card card)
         {
             var turtles = new[] {_blue[0], _green[0], _red[0], _violet[0], _yellow[0]};
-            var colors = !card.Sign.Equals("arrow") ? new[] { "niebieski", "zielony", "czerwony", "fioletowy", "żółty" } : SelectColorsForArrow();
-            if (Players[_currentId].PlayerType.Equals("Człowiek")) new ColorSelectPrompt(card, colors, MainWindow).Show();
+            var colors = !card.Sign.Equals("arrow") ? new[] { "blue", "green", "red", "violet", "yellow" } : SelectColorsForArrow();
+            if (Players[_currentId].PlayerType.Equals("Human")) new ColorSelectPrompt(card, colors, MainWindow).Show();
             else MoveColored(card, colors[_algorithms.EvaluateStrategyColor(
                                                                             turtles, 
                                                                             Players[_currentId],
@@ -367,11 +367,11 @@ namespace Pędzące_Żółwie.Controllers
 
             var list = new ArrayList();
 
-            if (_red[0] == min) list.Add("czerwony");
-            if (_blue[0] == min) list.Add("niebieski");
-            if (_green[0] == min) list.Add("zielony");
-            if (_yellow[0] == min) list.Add("żółty");
-            if (_violet[0] == min) list.Add("fioletowy");
+            if (_red[0] == min) list.Add("red");
+            if (_blue[0] == min) list.Add("blue");
+            if (_green[0] == min) list.Add("green");
+            if (_yellow[0] == min) list.Add("yellow");
+            if (_violet[0] == min) list.Add("violet");
 
             var result = new string[list.Count];
             for (var i = 0; i < list.Count; i++)
@@ -383,29 +383,29 @@ namespace Pędzące_Żółwie.Controllers
 
         public void MoveColored(Card card, string color)
         {
-            var logLine = "Gracz " + (_currentId + 1) + ": kolor ";
+            var logLine = "Player " + (_currentId + 1) + ": colour ";
             int[] turtle;
             switch (color)
             {
-                case "czerwony":
+                case "red":
                     turtle = _red;
-                    logLine += "(czerwony), ";
+                    logLine += "(red), ";
                     break;
-                case "fioletowy":
+                case "violet":
                     turtle = _violet;
-                    logLine += "(fioletowy), ";
+                    logLine += "(violet), ";
                     break;
-                case "zielony":
+                case "green":
                     turtle = _green;
-                    logLine += "(zielony), ";
+                    logLine += "(green), ";
                     break;
-                case "niebieski":
+                case "blue":
                     turtle = _blue;
-                    logLine += "(niebieski), ";
+                    logLine += "(blue), ";
                     break;
                 default:
                     turtle = _yellow;
-                    logLine += "(żółty), ";
+                    logLine += "(yellow), ";
                     break;
             }
             logLine += card.Sign + ", " + card.Value + ";\n";
@@ -418,7 +418,7 @@ namespace Pędzące_Żółwie.Controllers
         public void EndTurn()
         {
             ChangePlayer();
-            if (Players[_currentId].PlayerType.Equals("Człowiek"))
+            if (Players[_currentId].PlayerType.Equals("Human"))
             {
                 MainWindow.SetCursor();
                 MainWindow.PlayerTurtle.Source = Players[_currentId].TurtleSource;
@@ -442,19 +442,17 @@ namespace Pędzące_Żółwie.Controllers
 
                 //System.Threading.Thread.Sleep(1000);
 
-                if (!_endGameFlag)
-                {
-                    var turtles = new[] {_blue[0], _green[0], _red[0], _violet[0], _yellow[0]};
-                    CardSelected(_algorithms.EvaluateStrategy(
-                                                             turtles, 
-                                                             Players[_currentId], 
-                                                             Players[_currentId].Hand, 
-                                                             StringToTurtle(SelectColorsForArrow()),
-                                                             turtles[(int)Players[_currentId].PlayerTurtle],
-                                                             _maxTurtlePos
-                                                             )
-                                );
-                }
+                if (_endGameFlag) return;
+                var turtles = new[] {_blue[0], _green[0], _red[0], _violet[0], _yellow[0]};
+                CardSelected(_algorithms.EvaluateStrategy(
+                    turtles, 
+                    Players[_currentId], 
+                    Players[_currentId].Hand, 
+                    StringToTurtle(SelectColorsForArrow()),
+                    turtles[(int)Players[_currentId].PlayerTurtle],
+                    _maxTurtlePos
+                    )
+                );
             }
         }
 
@@ -497,7 +495,7 @@ namespace Pędzące_Żółwie.Controllers
         private void CheckWinner()
         {
             _endGameFlag = true;
-            Turtle[] finishedTurtles = {Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull, Turtle.Colorfull};
+            Turtle[] finishedTurtles = {Turtle.Colourful, Turtle.Colourful, Turtle.Colourful, Turtle.Colourful, Turtle.Colourful};
 
             if (_red[0] == 9) finishedTurtles[_red[1]] = Turtle.Red;
             if (_blue[0] == 9) finishedTurtles[_blue[1]] = Turtle.Blue;
@@ -506,7 +504,7 @@ namespace Pędzące_Żółwie.Controllers
             if (_violet[0] == 9) finishedTurtles[_violet[1]] = Turtle.Violet;
 
             var finishedTurtlesCount = 5;
-            while (finishedTurtlesCount > 0 && finishedTurtles[finishedTurtlesCount - 1] == Turtle.Colorfull) finishedTurtlesCount--;
+            while (finishedTurtlesCount > 0 && finishedTurtles[finishedTurtlesCount - 1] == Turtle.Colourful) finishedTurtlesCount--;
 
             if (finishedTurtlesCount <= 0) return;
             var winPlayer = -1;
@@ -523,14 +521,14 @@ namespace Pędzące_Żółwie.Controllers
             if (winPlayer == -1)
             {
                 new EndGamePrompt(MainWindow, false).Show();
-                _log.WriteLine(logLine = "*****Brak zwycięzcy*****\n");
+                _log.WriteLine(logLine = "*****Nobody wins*****\n");
                 _log.WriteLine();
                 MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             }
             else
             {
                 new EndGamePrompt(MainWindow, true, winPlayer).Show();
-                _log.WriteLine(logLine = "*****Zwycięzca: Grzacz " + winPlayer + "*****\n");
+                _log.WriteLine(logLine = "*****Winner: Player " + winPlayer + "*****\n");
                 _log.WriteLine();
                 MainWindow.GetLogBlock().Text = logLine + MainWindow.GetLogBlock().Text;
             }
@@ -546,17 +544,17 @@ namespace Pędzące_Żółwie.Controllers
             return turtlesRes;
         }
 
-        private Turtle StringToTurtle(string turtle)
+        private static Turtle StringToTurtle(string turtle)
         {
             switch (turtle)
             {
-                case "czerwony":
+                case "red":
                     return Turtle.Red;
-                case "fioletowy":
+                case "violet":
                     return Turtle.Violet;
-                case "zielony":
+                case "green":
                     return Turtle.Green;
-                case "niebieski":
+                case "blue":
                     return Turtle.Blue;
                 default:
                     return Turtle.Yellow;

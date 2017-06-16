@@ -26,11 +26,11 @@ namespace Pędzące_Żółwie.Views
             Close();
         }
 
-        private void ManualButton_Click(object sender, RoutedEventArgs e)
+        /*private void ManualButton_Click(object sender, RoutedEventArgs e)
         {
             new ManualWindow(false).Show();
             Close();
-        }
+        }*/
 
         private void AuthorButton_Click(object sender, RoutedEventArgs e)
         {

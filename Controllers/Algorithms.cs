@@ -25,7 +25,7 @@ namespace Pędzące_Żółwie.Controllers
 
         public int EvaluateStrategyColor(int[] turtlesPos, Player player, Card card, Turtle[] colors, int playerTurtlePos, int maxPosition)
         {
-            if (player.PlayerType.Equals("Strategia Random")) return _random.Next(colors.Length);
+            if (player.PlayerType.Equals("'Dummy' Strategy")) return _random.Next(colors.Length);
             var cards = new Card[colors.Length];
             for (var i = 0; i < colors.Length; i++)
             {
@@ -36,38 +36,38 @@ namespace Pędzące_Żółwie.Controllers
 
         public int EvaluateStrategy(int[] turtlesPos, Player player, Card[] hand, Turtle[] colors, int playerTurtlePos, int maxPosition)
         {
-            if (player.PlayerType.Equals("Strategia Random")) return _random.Next(5);
+            if (player.PlayerType.Equals("'Dummy' Strategy")) return _random.Next(5);
             var index = 0;
             var max = int.MinValue;
             for (var i = 0; i < hand.Length; i++)
             {
                 var card = hand[i];
                 var val = 0;
-                if (card.Color != Turtle.Colorfull)
+                if (card.Color != Turtle.Colourful)
                 {
-                    if(player.PlayerType.Equals("Strategia FWS")) val = FastestCalculate(turtlesPos[(int)card.Color], player.PlayerTurtle, card, card.Color);
-                    else if (player.PlayerType.Equals("Strategia SWS")) val = SavestCalculate(turtlesPos[(int)card.Color], player.PlayerTurtle, card, card.Color);
-                    else if (player.PlayerType.Equals("Strategia MASK")) val = MaskCalculate(turtlesPos[(int)card.Color], playerTurtlePos, player.PlayerTurtle, card, card.Color);
-                    else if (player.PlayerType.Equals("Strategia Hybrydowa")) val = HybridCalculate(turtlesPos[(int)card.Color], playerTurtlePos, maxPosition, player.PlayerTurtle, card, card.Color);
+                    if(player.PlayerType.Equals("Fast Strategy")) val = FastestCalculate(turtlesPos[(int)card.Color], player.PlayerTurtle, card, card.Color);
+                    else if (player.PlayerType.Equals("Efficient Strategy")) val = SavestCalculate(turtlesPos[(int)card.Color], player.PlayerTurtle, card, card.Color);
+                    else if (player.PlayerType.Equals("MASK Strategy")) val = MaskCalculate(turtlesPos[(int)card.Color], playerTurtlePos, player.PlayerTurtle, card, card.Color);
+                    else if (player.PlayerType.Equals("Hybrid Strategy")) val = HybridCalculate(turtlesPos[(int)card.Color], playerTurtlePos, maxPosition, player.PlayerTurtle, card, card.Color);
                 }
                 else if (card.Sign.Equals("arrow"))
                 {
                     var idColor = EvaluateStrategyColor(turtlesPos, player, card, colors, playerTurtlePos, maxPosition);
 
-                    if (player.PlayerType.Equals("Strategia FWS")) val = FastestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, colors[idColor]);
-                    else if (player.PlayerType.Equals("Strategia SWS")) val = SavestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, colors[idColor]);
-                    else if (player.PlayerType.Equals("Strategia MASK")) val = MaskCalculate(turtlesPos[idColor],playerTurtlePos, player.PlayerTurtle, card, colors[idColor]);
-                    else if (player.PlayerType.Equals("Strategia Hybrydowa")) val = HybridCalculate(turtlesPos[idColor], playerTurtlePos, maxPosition, player.PlayerTurtle, card, colors[idColor]);
+                    if (player.PlayerType.Equals("Fast Strategy")) val = FastestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, colors[idColor]);
+                    else if (player.PlayerType.Equals("Efficient Strategy")) val = SavestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, colors[idColor]);
+                    else if (player.PlayerType.Equals("MASK Strategy")) val = MaskCalculate(turtlesPos[idColor],playerTurtlePos, player.PlayerTurtle, card, colors[idColor]);
+                    else if (player.PlayerType.Equals("Hybrid Strategy")) val = HybridCalculate(turtlesPos[idColor], playerTurtlePos, maxPosition, player.PlayerTurtle, card, colors[idColor]);
                 }
                 else
                 {
                     var tempColors = new[] { Turtle.Blue, Turtle.Green, Turtle.Red, Turtle.Violet, Turtle.Yellow };
                     var idColor = EvaluateStrategyColor(turtlesPos, player, card, tempColors, playerTurtlePos, maxPosition);
 
-                    if (player.PlayerType.Equals("Strategia FWS")) val = FastestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, tempColors[idColor]);
-                    else if (player.PlayerType.Equals("Strategia SWS")) val = SavestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, tempColors[idColor]);
-                    else if (player.PlayerType.Equals("Strategia MASK")) val = MaskCalculate(turtlesPos[idColor], playerTurtlePos, player.PlayerTurtle, card, tempColors[idColor]);
-                    else if (player.PlayerType.Equals("Strategia Hybrydowa")) val = HybridCalculate(turtlesPos[idColor], playerTurtlePos, maxPosition, player.PlayerTurtle, card, tempColors[idColor]);
+                    if (player.PlayerType.Equals("Fast Strategy")) val = FastestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, tempColors[idColor]);
+                    else if (player.PlayerType.Equals("Efficient Strategy")) val = SavestCalculate(turtlesPos[idColor], player.PlayerTurtle, card, tempColors[idColor]);
+                    else if (player.PlayerType.Equals("MASK Strategy")) val = MaskCalculate(turtlesPos[idColor], playerTurtlePos, player.PlayerTurtle, card, tempColors[idColor]);
+                    else if (player.PlayerType.Equals("Hybrid Strategy")) val = HybridCalculate(turtlesPos[idColor], playerTurtlePos, maxPosition, player.PlayerTurtle, card, tempColors[idColor]);
                 }
                 if (max >= val) continue;
                 max = val;

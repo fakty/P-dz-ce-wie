@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media.Imaging;
 
 namespace Pędzące_Żółwie.Models
 {
@@ -28,17 +25,17 @@ namespace Pędzące_Żółwie.Models
             switch (Color)
             {
                 case Turtle.Blue:
-                    return "niebieski, " + Sign + ", " + Value;
-                case Turtle.Colorfull:
-                    return "kolor, " + Sign + ", " + Value;
+                    return "blue, " + Sign + ", " + Value;
+                case Turtle.Colourful:
+                    return "colour, " + Sign + ", " + Value;
                 case Turtle.Green:
-                    return "zielony, " + Sign + ", " + Value;
+                    return "green, " + Sign + ", " + Value;
                 case Turtle.Red:
-                    return "czerwony, " + Sign + ", " + Value;
+                    return "red, " + Sign + ", " + Value;
                 case Turtle.Violet:
-                    return "fioletowy, " + Sign + ", " + Value;
+                    return "violet, " + Sign + ", " + Value;
                 default:
-                    return "żółty, " + Sign + ", " + Value;
+                    return "yellow, " + Sign + ", " + Value;
             }
         }
     }

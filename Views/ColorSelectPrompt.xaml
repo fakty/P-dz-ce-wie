@@ -28,12 +28,12 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="Instruction" Content="Wybierz kolor żółwia:" HorizontalAlignment="Center" Margin="10, 1" Grid.Row="1" VerticalAlignment="Center" FontSize="14"/>
-            <Button x:Name="Button4" Content="Czerwony" HorizontalAlignment="Center" Margin="5" Grid.Row="2" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button4_Click"/>
-            <Button x:Name="Button2" Content="Niebieski" HorizontalAlignment="Center" Margin="5" Grid.Row="3" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button2_Click"/>
-            <Button x:Name="Button1" Content="Zielony" HorizontalAlignment="Center" Margin="5" Grid.Row="4" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button1_Click"/>
-            <Button x:Name="Button3" Content="Żółty" HorizontalAlignment="Center" Margin="5" Grid.Row="5" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button3_Click"/>
-            <Button x:Name="Button5" Content="Fioletowy" HorizontalAlignment="Center" Margin="5" Grid.Row="6" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button5_Click"/>
+            <Label x:Name="Instruction" Content="Choose colour for turtle:" HorizontalAlignment="Center" Margin="10, 1" Grid.Row="1" VerticalAlignment="Center" FontSize="14"/>
+            <Button x:Name="Button4" Content="Red" HorizontalAlignment="Center" Margin="5" Grid.Row="2" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button4_Click"/>
+            <Button x:Name="Button2" Content="Blue" HorizontalAlignment="Center" Margin="5" Grid.Row="3" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button2_Click"/>
+            <Button x:Name="Button1" Content="Green" HorizontalAlignment="Center" Margin="5" Grid.Row="4" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button1_Click"/>
+            <Button x:Name="Button3" Content="Yellow" HorizontalAlignment="Center" Margin="5" Grid.Row="5" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button3_Click"/>
+            <Button x:Name="Button5" Content="Violet" HorizontalAlignment="Center" Margin="5" Grid.Row="6" VerticalAlignment="Center" Width="75" Style="{StaticResource SquareButtonStyle}" FontSize="10" Click="Button5_Click"/>
         </Grid>
         <Image Grid.Column="0" x:Name="Image" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Source="/Pędzące Żółwie;component/Resources/card_color_plus.png" />
     </Grid>

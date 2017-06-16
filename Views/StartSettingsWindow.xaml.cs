@@ -31,6 +31,7 @@ namespace Pędzące_Żółwie
         {
             GC.Collect();
             GetPlayersType();
+            // ReSharper disable once PossibleInvalidOperationException
             new GameWindow(_activePlayersCount, _playersType, (bool)LogBox.IsChecked).Show();
             Close();
         }

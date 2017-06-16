@@ -21,8 +21,8 @@
         </Grid.RowDefinitions>
         <Grid Row="1" Name="PlayerGrid"/>
         <Grid Row="2" Name="TurtleGrid"/>
-        <Button Grid.Row="0" x:Name="EndGame" Content="Zakończ" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="EndGame_Click"/>
-        <Label Grid.Row="0" x:Name="WinLabel" Content="Zwyciężył gracz 0!" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Center" FontSize="40"/>
+        <Button Grid.Row="0" x:Name="EndGame" Content="Close" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="EndGame_Click"/>
+        <Label Grid.Row="0" x:Name="WinLabel" Content="The winner is player 0!" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Center" FontSize="40"/>
     </Grid>
 </controls:MetroWindow>
 

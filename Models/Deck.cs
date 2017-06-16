@@ -18,14 +18,14 @@ namespace Pędzące_Żółwie.Models
         private static readonly BitmapSource YellowPlus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_yellow_plus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         private static readonly BitmapSource RedPlus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_red_plus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         private static readonly BitmapSource GreenPlus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_green_plus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-        private static readonly BitmapSource ColorPlus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_color_plus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+        private static readonly BitmapSource ColourPlus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_color_plus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
 
         private static readonly BitmapSource BlueMinus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_blue_minus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         private static readonly BitmapSource VioletMinus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_violet_minus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         private static readonly BitmapSource YellowMinus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_yellow_minus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         private static readonly BitmapSource RedMinus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_red_minus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         private static readonly BitmapSource GreenMinus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_green_minus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-        private static readonly BitmapSource ColorMinus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_color_minus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+        private static readonly BitmapSource ColourMinus = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_color_minus.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
 
         private static readonly BitmapSource Arrow = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_arrow.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         private static readonly BitmapSource Arrow2 = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.card_arrow_2.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
@@ -52,9 +52,9 @@ namespace Pędzące_Żółwie.Models
         private void Shuffle()
         {
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(Arrow2, Turtle.Colorfull, "arrow", 2));
+                _deck.Add(new Card(Arrow2, Turtle.Colourful, "arrow", 2));
             for (var i = 0; i < 3; i++)
-                _deck.Add(new Card(Arrow, Turtle.Colorfull, "arrow", 1));
+                _deck.Add(new Card(Arrow, Turtle.Colourful, "arrow", 1));
 
             _deck.Add(new Card(BluePlus2, Turtle.Blue, "plus", 2));
             _deck.Add(new Card(GreenPlus2, Turtle.Green, "plus", 2));
@@ -73,7 +73,7 @@ namespace Pędzące_Żółwie.Models
             for (var i = 0; i < 5; i++)
                 _deck.Add(new Card(YellowPlus, Turtle.Yellow, "plus", 1));
             for (var i = 0; i < 5; i++)
-                _deck.Add(new Card(ColorPlus, Turtle.Colorfull, "plus", 1));
+                _deck.Add(new Card(ColourPlus, Turtle.Colourful, "plus", 1));
 
             for (var i = 0; i < 2; i++)
                 _deck.Add(new Card(BlueMinus, Turtle.Blue, "minus", 1));
@@ -86,7 +86,7 @@ namespace Pędzące_Żółwie.Models
             for (var i = 0; i < 2; i++)
                 _deck.Add(new Card(YellowMinus, Turtle.Yellow, "minus", 1));
             for (var i = 0; i < 2; i++)
-                _deck.Add(new Card(ColorMinus, Turtle.Colorfull, "minus", 1));
+                _deck.Add(new Card(ColourMinus, Turtle.Colourful, "minus", 1));
         }
 
         public Card DrawCard()
