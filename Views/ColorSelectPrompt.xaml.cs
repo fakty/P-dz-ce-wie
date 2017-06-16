@@ -2,10 +2,10 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using Pędzące_Żółwie.Controllers;
-using Pędzące_Żółwie.Models;
+using TurtleRace.Controllers;
+using TurtleRace.Models;
 
-namespace Pędzące_Żółwie
+namespace TurtleRace
 {
     /// <summary>
     /// Logika interakcji dla klasy ColorSelectPrompt.xaml

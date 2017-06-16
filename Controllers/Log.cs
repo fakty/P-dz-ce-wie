@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Pędzące_Żółwie.Controllers
+namespace TurtleRace.Controllers
 {
     public class Log
     {

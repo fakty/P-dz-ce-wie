@@ -1,4 +1,4 @@
-﻿namespace Pędzące_Żółwie
+﻿namespace TurtleRace
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml

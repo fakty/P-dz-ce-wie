@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Input;
 
-namespace Pędzące_Żółwie.Views
+namespace TurtleRace.Views
 {
     /// <summary>
     /// Logika interakcji dla klasy AuthorWindow.xaml

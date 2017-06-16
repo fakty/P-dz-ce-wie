@@ -4,10 +4,10 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Pędzące_Żółwie.Controllers;
-using Pędzące_Żółwie.Views;
+using TurtleRace.Controllers;
+using TurtleRace.Views;
 
-namespace Pędzące_Żółwie
+namespace TurtleRace
 {
     /// <summary>
     /// Logika interakcji dla klasy GameWindow.xaml

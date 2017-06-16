@@ -1,7 +1,7 @@
 ﻿using System;
-using Pędzące_Żółwie.Models;
+using TurtleRace.Models;
 
-namespace Pędzące_Żółwie.Controllers
+namespace TurtleRace.Controllers
 {
     class Algorithms
     {

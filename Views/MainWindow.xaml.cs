@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace Pędzące_Żółwie.Views
+namespace TurtleRace.Views
 {
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml

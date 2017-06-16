@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using Pędzące_Żółwie.Models;
+using TurtleRace.Models;
 
-namespace Pędzące_Żółwie.Controllers
+namespace TurtleRace.Controllers
 {
     public class Player
     {

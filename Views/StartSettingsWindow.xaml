@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:system="clr-namespace:System;assembly=mscorlib" x:Class="Pędzące_Żółwie.StartSettingsWindow"
+        xmlns:system="clr-namespace:System;assembly=mscorlib" x:Class="TurtleRace.StartSettingsWindow"
         mc:Ignorable="d"
         Title="Settings" Height="395.061" Width="506.955" ResizeMode="NoResize" Icon="pack://siteoforigin:,,,/Resources/turtle.ico" WindowStartupLocation="CenterScreen" BorderBrush="Green" BorderThickness="1">
     <controls:MetroWindow.RightWindowCommands>

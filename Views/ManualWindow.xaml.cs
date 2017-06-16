@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace Pędzące_Żółwie.Views
+namespace TurtleRace.Views
 {
     /// <summary>
     /// Logika interakcji dla klasy OptionWindow.xaml

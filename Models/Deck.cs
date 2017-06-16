@@ -3,7 +3,7 @@ using System.Collections;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace Pędzące_Żółwie.Models
+namespace TurtleRace.Models
 {
     class Deck
     {

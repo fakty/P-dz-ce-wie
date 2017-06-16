@@ -4,9 +4,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using Pędzące_Żółwie.Models;
+using TurtleRace.Models;
 
-namespace Pędzące_Żółwie.Controllers
+namespace TurtleRace.Controllers
 {
     public class Game
     {

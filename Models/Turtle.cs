@@ -1,4 +1,4 @@
-﻿namespace Pędzące_Żółwie.Models
+﻿namespace TurtleRace.Models
 {
     public enum Turtle
     {
