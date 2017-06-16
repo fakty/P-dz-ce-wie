@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Pędzące_Żółwie.Controllers.Algorithms" Collapsed="true">
+  <Class Name="TurtleRace.Controllers.Algorithms" Collapsed="true">
     <Position X="2.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAECAIAAAQAAAAAAAAACgAAAAAAAAAAQAAAACAAAAE=</HashCode>
       <FileName>Controllers\Algorithms.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pędzące_Żółwie.Controllers.Game" Collapsed="true">
+  <Class Name="TurtleRace.Controllers.Game" Collapsed="true">
     <Position X="4" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>FAAmAAyAQogACGJAEACFQEBgAAAgAAAAQAAgAgAAAwA=</HashCode>
       <FileName>Controllers\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pędzące_Żółwie.Controllers.Log" Collapsed="true">
+  <Class Name="TurtleRace.Controllers.Log" Collapsed="true">
     <Position X="2.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAACAAAIAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Controllers\Log.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pędzące_Żółwie.Controllers.Player" Collapsed="true">
+  <Class Name="TurtleRace.Controllers.Player" Collapsed="true">
     <Position X="4" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAACAAAAAAAAAQAEAAEAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Controllers\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pędzące_Żółwie.Models.Card" Collapsed="true">
+  <Class Name="TurtleRace.Models.Card" Collapsed="true">
     <Position X="8.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAEAAAAAAAAAAAAAAAAAAAggAAIAAA=</HashCode>
       <FileName>Models\Card.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pędzące_Żółwie.Models.Deck" Collapsed="true">
+  <Class Name="TurtleRace.Models.Deck" Collapsed="true">
     <Position X="10.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAhHAAAAAgAAAICEAIAAgIAAEABAAAAARQkgAAAAEAE=</HashCode>
       <FileName>Models\Deck.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pędzące_Żółwie.Views.AuthorWindow" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TurtleRace.Views.AuthorWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="3.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
@@ -50,7 +50,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Pędzące_Żółwie.Views.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TurtleRace.Views.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="5.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAIAAAAQAAAAAEAAAAAAAAAAAAAAA=</HashCode>
@@ -58,7 +58,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Pędzące_Żółwie.Views.ManualWindow" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TurtleRace.Views.ManualWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAECAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAA=</HashCode>
@@ -66,7 +66,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Pędzące_Żółwie.ColorSelectPrompt" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TurtleRace.ColorSelectPrompt" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="5.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAcAwAAAAAAIAAAAA=</HashCode>
@@ -74,7 +74,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Pędzące_Żółwie.EndGamePrompt" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TurtleRace.EndGamePrompt" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
@@ -82,7 +82,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Pędzące_Żółwie.GameWindow" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TurtleRace.GameWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="3.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAoAAAAAAAQAAAgAAgEQAAAAAAAiAAAAEAACAAQAA=</HashCode>
@@ -90,7 +90,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Pędzące_Żółwie.StartSettingsWindow" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TurtleRace.StartSettingsWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="3.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAABAAAAAAAAAAAAAAgEAAAAACAAACAAAAA=</HashCode>
@@ -98,7 +98,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Enum Name="Pędzące_Żółwie.Models.Turtle" Collapsed="true">
+  <Enum Name="TurtleRace.Models.Turtle" Collapsed="true">
     <Position X="8.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAgAAAAAAAAEAEAAAAAAAAAAAADAAAAA=</HashCode>
